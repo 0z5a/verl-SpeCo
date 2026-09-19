@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "path": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native/models/draft-eagle3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native/models/draft-mapped/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native/models/draft-original/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native/models/target/model.safetensors",
+      "bytes": 727208,
+      "sha256": "9bc8ce7ea08dbd17ac2815ce1fc3e7d0e4e1b071c6969bca7d0e252d5d40da34"
+    }
+  ],
+  "bytes": 2271968,
+  "native_loader_sha256_after": "b5017c1c7e4210cce28786d10fd41179d22f0d285c366df57db4caacf2355e68"
+}

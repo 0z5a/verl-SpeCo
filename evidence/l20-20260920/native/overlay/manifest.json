@@ -1,0 +1,6 @@
+{
+  "native_package": "/home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm",
+  "native_loader_sha256": "b5017c1c7e4210cce28786d10fd41179d22f0d285c366df57db4caacf2355e68",
+  "candidate_loader_sha256": "3c824c3d8b30d954e04e081e7a874a9f982321284ebac66cbdb2ce0a61b2bd60",
+  "change": "Idempotent model. prefix only; native installation unchanged"
+}

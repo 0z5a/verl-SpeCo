@@ -1,0 +1,9 @@
+{
+  "registry_file": "/home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm/model_executor/models/registry.py",
+  "registry_sha256": "c18f22acd950381d84fba16c39c9d73aaf057f5b02616b2df8ed37061cc71f71",
+  "architecture_names_in_registry": {
+    "Eagle3LlamaForCausalLM": true,
+    "DFlashLagunaForCausalLM": false,
+    "DFlashQwen3ForCausalLM": false
+  }
+}

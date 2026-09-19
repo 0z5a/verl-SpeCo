@@ -6,10 +6,10 @@
 
 | 项目 | 本轮结果 | 分支 / 提交 |
 |---|---|---|
-| C1 frozen P-EAGLE | 实际训练 checkpoint → 转换 → vLLM 生成 → 32 次缓存 logits 对照通过；25 张量完全一致，argmax 全同，最大误差 0.00390625 | `codex/speco-peagle-frozen-serving` / `fc273cf` |
-| C2 sequence partition | 两卡独立 A0/P0/P1/A1 完整训练进程，各 6 更新、2 次 checkpoint、干净退出；44 项回归通过 | `codex/speco-partition-e2e` / `9be33cc` |
+| C1 frozen P-EAGLE | 实际训练 checkpoint → 转换 → vLLM 生成 → 32 次缓存 logits 对照通过；25 张量完全一致，argmax 全同，最大误差 0.00390625 | `0z5a/speco-peagle-frozen-serving` / `fc273cf` |
+| C2 sequence partition | 两卡独立 A0/P0/P1/A1 完整训练进程，各 6 更新、2 次 checkpoint、干净退出；44 项回归通过 | `0z5a/speco-partition-e2e` / `9be33cc` |
 | C3 bubble-time workers | 未重复实现：维护者已有初版并明确要求优先 VeOmni，待其提交后 review | [维护者说明](https://github.com/verl-project/verl-SpeCo/issues/7#issuecomment-5742262814) |
-| C4 VeOmni drafter | 新增独立进程 dense P-EAGLE adapter；两卡参数、梯度、裁剪、AdamW moments 对照通过；6 步训练、保存和 6→8 恢复通过；61 passed / 1 dependency skip | `codex/speco-veomni-drafter` / `6df26e4` |
+| C4 VeOmni drafter | 新增独立进程 dense P-EAGLE adapter；两卡参数、梯度、裁剪、AdamW moments 对照通过；6 步训练、保存和 6→8 恢复通过；61 passed / 1 dependency skip | `0z5a/speco-veomni-drafter` / `6df26e4` |
 | C5 原 PR10 public loader | 仍未通过：vLLM 0.29.0 重复添加 model. 前缀；原 PR 未给配套幂等处理提交，已请求其 SHA | 原 PR head `b258ec517977a01df722909789da42746c39f28f` |
 
 C4 review 修复了 P-EAGLE 导出时未取内部 draft_model，以及恢复 checkpoint 时重新覆盖已训练 embedding 的两个问题。新路径没有引入 Any、getattr 或宽泛异常捕获。各分支八项仓库 sanity 检查通过；并不声称全仓测试全部通过。
@@ -60,3 +60,7 @@ C5 补丁只将 `elif "lm_head" not in name` 改为额外检查 `not name.starts
 TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 custom all-reduce、V1 替代 V2，以及 spawn 替代 fork；未把卡住归因于 P-EAGLE，也未申报 TP2 通过。一次独立启动失败明确是显存预留门槛不足。原始日志与 Python worker stack 已保存在 C1 分支。机器多卡被其他工作占用，已请求可用于完整 4B 在线 E2E 的 GPU 编号或预留时段，未停止其他任务。
 
 本轮完成后再次清理 4 个重新生成的 tiny 模型权重，释放 2,271,968 bytes；路径、大小和 SHA-256 见 `evidence/l20-20260920/continuation-model-cleanup.json`。所有本轮残留 engine / worker 已停止，配置和证据保留。Graph 与 loader 的结果已提交；TP2、C3、C4 的精确 RNG/数据位置恢复与真实在线发布、原 C5 的双算法完整 RL 验证仍未全部完成。
+
+## C5 环境调整
+
+用户确认 C5 使用 L20 主机原生 vLLM。已锁定 `agent_use` 的 vLLM 0.18.0 / PyTorch 2.10.0+cu128，并适配该版本的 fixture / worker 接口。最终原生对照因导入阶段文件页等待而超时，候选未执行；原生 registry 还缺少 DFlash。详见 `C5_NATIVE_RESULTS.md`。此次没有修改原生共享安装，测试权重已清理。

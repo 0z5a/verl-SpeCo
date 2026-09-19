@@ -1,0 +1,10 @@
+{
+  "python": "/home/kxqandccx/miniconda3/envs/agent_use/bin/python",
+  "vllm": "0.18.0",
+  "vllm_file": "/home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm/__init__.py",
+  "torch": "2.10.0+cu128",
+  "cuda": "12.8",
+  "transformers": "5.12.0",
+  "loader_sha256": "b5017c1c7e4210cce28786d10fd41179d22f0d285c366df57db4caacf2355e68",
+  "gpu": "NVIDIA L20"
+}
