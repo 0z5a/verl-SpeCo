@@ -125,7 +125,7 @@ Ray worker 最终执行路径为 `/experiment/variants/eagle-alias/verl_speco/`�
 修复使用算法已有的 block-drafter 分类，令 token、hidden、position 同位置对齐；EAGLE3/P-EAGLE 保持原移位。
 36 项窗口回归在原方法上 24 failed / 12 passed，在修复后 36 passed。相关套件 91 passed / 2 failed；两项失败均为已有 worker fixture 缺少 `replica_rank`，在保存的未修改主线结果中同样出现。Ruff、修改文件 mypy、diff 检查通过。
 
-DFlash 的修复后 GPU 运行结果尚待完成，不填写速度收益。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
+DFlash 修复后已观察到 revision 1–9 双 TP rank 提交；随后 SSH banner exchange 超时，最终 20 步结果尚未取回，不填写速度收益。本地完整日志快照仅保存至首轮；第 2–9 轮确认来自当时的远端日志读取。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
 
 ## 模型清理
 
