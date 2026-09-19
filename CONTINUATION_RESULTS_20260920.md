@@ -46,7 +46,7 @@ C1/C2/C4 本轮完整流程使用 tiny 全词表 P-EAGLE，不能替代真实 4B
 
 ## 再次续做：Graph 与 public loader 候选依赖
 
-C1 新提交 `cd4c382`：重新生成原始 tiny fixture，完成单卡 BF16 CUDA Graph 的 baseline / P-EAGLE 两轮生成。两轮输出全部一致，并与此前 eager 输出逐 token 一致。实际观测 baseline 80 次 replay、speculative engine 272 次 replay；25 个逻辑权重张量完全一致。角色计数包括 target 和 PiecewiseBackend，未把后者逐个映射到 draft layer；没有声称 graph 下完成独立的 draft logits oracle。
+C1 新提交 `cd4c382`，最终记录提交 `4593dd0`：重新生成原始 tiny fixture，完成单卡 BF16 CUDA Graph 的 baseline / P-EAGLE 两轮生成。两轮输出全部一致，并与此前 eager 输出逐 token 一致。实际观测 baseline 80 次 replay、speculative engine 272 次 replay；25 个逻辑权重张量完全一致。角色计数包括 target 和 PiecewiseBackend，未把后者逐个映射到 draft layer；没有声称 graph 下完成独立的 draft logits oracle。
 
 | 本轮对照 | 原路径 | 新路径 | 速度提升 | 正确性结果 |
 |---|---|---|---|---|
@@ -58,3 +58,5 @@ C5 补丁只将 `elif "lm_head" not in name` 改为额外检查 `not name.starts
 执行前后安装文件 SHA-256 均为 `5be7ee5513499b982d08803ac138926954377c858ffc2f2ebfe123e65556a61a`，确认测试脚本已恢复容器中的 vLLM 源码。当前 vLLM main `751f6807d9cb3de50c27a5f27188c4fb04fe0e2b` 的该 loader 仍无前缀幂等 guard；SpeCo main 仍为原固定 SHA，C3 未发现发布的对应实现。
 
 TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 custom all-reduce、V1 替代 V2，以及 spawn 替代 fork；未把卡住归因于 P-EAGLE，也未申报 TP2 通过。一次独立启动失败明确是显存预留门槛不足。原始日志与 Python worker stack 已保存在 C1 分支。机器多卡被其他工作占用，已请求可用于完整 4B 在线 E2E 的 GPU 编号或预留时段，未停止其他任务。
+
+本轮完成后再次清理 4 个重新生成的 tiny 模型权重，释放 2,271,968 bytes；路径、大小和 SHA-256 见 `evidence/l20-20260920/continuation-model-cleanup.json`。所有本轮残留 engine / worker 已停止，配置和证据保留。Graph 与 loader 的结果已提交；TP2、C3、C4 的精确 RNG/数据位置恢复与真实在线发布、原 C5 的双算法完整 RL 验证仍未全部完成。
