@@ -125,7 +125,17 @@ Ray worker 最终执行路径为 `/experiment/variants/eagle-alias/verl_speco/`�
 修复使用算法已有的 block-drafter 分类，令 token、hidden、position 同位置对齐；EAGLE3/P-EAGLE 保持原移位。
 36 项窗口回归在原方法上 24 failed / 12 passed，在修复后 36 passed。相关套件 91 passed / 2 failed；两项失败均为已有 worker fixture 缺少 `replica_rank`，在保存的未修改主线结果中同样出现。Ruff、修改文件 mypy、diff 检查通过。
 
-DFlash 修复后已观察到 revision 1–9 双 TP rank 提交；随后 SSH banner exchange 超时，最终 20 步结果尚未取回，不填写速度收益。本地完整日志快照仅保存至首轮；第 2–9 轮确认来自当时的远端日志读取。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
+DFlash 完整日志已取回：20 次 optimizer 更新、40 次 rank 提交，revision 1–19 均在后续 wake-up 恢复。最终 revision 20 没有后续 rollout。平均整步 60.10 s；actor 梯度/reward 仍为 0。训练结束后 DataLoader worker 64271 被 SIGKILL，外层退出码仍为 0，严格 clean-exit 检查未通过。现以 `data.dataloader_num_workers=0` 重跑。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
+
+| DFlash TP2 对照 | 原主线 | 对齐修复 | 速度提升 |
+|---|---:|---:|---|
+| 完成 RL 外循环 | 20 | 20 | 不适用 |
+| 实际 drafter optimizer 更新 | 0 | 20 | 不适用：基线训练失败 |
+| TP rank 发布确认 | 0 | 40 | 不适用 |
+| 平均整步耗时（含首步） | 31.65 s | 60.10 s | 不可比较：有效工作量不同 |
+| 干净退出检查 | 训练 traceback，失败 | 退出阶段 SIGKILL，失败 | 不适用 |
+
+完整阶段审计：`evidence/l20-20260919/online-dflash-aligned-audit.json`。该运行证明对齐修复恢复了训练和发布，不证明原 PR #10 的 outer public-loader 路径、CUDA Graph 或 RL 质量。
 
 ## 模型清理
 

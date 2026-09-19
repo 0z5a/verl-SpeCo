@@ -1,0 +1,17 @@
+{
+  "optimizer_updates": 20,
+  "rank_commits": 40,
+  "subsequent_restored_revisions": [
+    1,
+    19
+  ],
+  "last_revision_followup_rollout": false,
+  "collected_samples": 40.0,
+  "mean_step_seconds": 60.100835982399076,
+  "actor_gradients_nonzero": false,
+  "exit_code": 0,
+  "clean_exit_check": "FAIL",
+  "shutdown_error": "DataLoader worker (pid 64271) is killed by signal: Killed.",
+  "training_tracebacks_before_final_marker": 0,
+  "performance_comparison": "INVALID: baseline completed no optimizer updates"
+}
