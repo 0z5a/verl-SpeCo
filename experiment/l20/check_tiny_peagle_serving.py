@@ -1,12 +1,51 @@
 """Small checkpoint loading and greedy-generation probe; not a quality test."""
 
 import argparse
+import inspect
 import json
 from pathlib import Path
 
 import torch
 from safetensors.torch import load_file
 from vllm import LLM, SamplingParams
+
+
+def capture_first_forward(worker):
+    from vllm.forward_context import get_forward_context
+
+    draft = worker.get_draft_model()
+    signature = inspect.signature(draft.forward)
+    captured = False
+
+    def capture(module, inputs, kwargs, outputs):
+        nonlocal captured
+        if captured:
+            return
+        captured = True
+        arguments = signature.bind(*inputs, **kwargs).arguments
+        metadata = get_forward_context().attn_metadata
+        record = {
+            "inputs": {
+                key: value.detach().cpu()
+                for key, value in arguments.items()
+                if isinstance(value, torch.Tensor)
+            },
+            "outputs": [value.detach().cpu() for value in outputs],
+            "logits": module.compute_logits(outputs[0]).detach().cpu(),
+            "metadata": {
+                name: {
+                    key: value.detach().cpu()
+                    for key, value in vars(layer).items()
+                    if isinstance(value, torch.Tensor)
+                }
+                for name, layer in metadata.items()
+            },
+        }
+        torch.save(
+            record, "/experiment/evidence/l20-20260919/tiny-peagle-first-forward.pt"
+        )
+
+    draft.register_forward_hook(capture, with_kwargs=True)
 
 
 def check_parameters(worker):
@@ -76,6 +115,8 @@ if __name__ == "__main__":
     prompts = [
         {"prompt_token_ids": tokens} for tokens in [[1, 4, 7], [1, 8, 9, 10, 11]]
     ]
+    if speculative is not None:
+        llm.collective_rpc(capture_first_forward)
     outputs = llm.generate(prompts, SamplingParams(temperature=0, max_tokens=16))
     report = {"mode": args.mode, "token_ids": [o.outputs[0].token_ids for o in outputs]}
     if speculative is not None:

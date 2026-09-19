@@ -29,6 +29,18 @@ No engine configuration or production adapter was added. A version-compatible
 dependency and a meta-materialization/state-loading oracle are required before
 an engine injection can be tested. This is an API investigation, not VeOmni E2E.
 
+Follow-up: verl v0.9.0 (`483b8a009ba3a97563edee3a19887e4862b8094a`)
+pins **VeOmni 0.1.11** in its CUDA E2E workflow. Its wheel SHA-256 is
+`fe399ead11350fa3d53cc53293cd60d0c1042f2fa15d599aeb89db9aa417b129`.
+The wheel was downloaded and verified in the task's `0z5a` cache, without
+changing the GPU environment. This version has the required public
+`init_parallel_state` API; the latest-upstream mismatch above is therefore
+not a blocker for every version. It has no scoped `use_parallel_state` API,
+and repeated initialization retains the existing singleton. An initial probe
+must use dedicated processes for the drafter group. FSDP2 still requires meta
+initialization and either checkpoint loading or `model.init_weights()`;
+the existing initialized training wrapper cannot simply be handed to it.
+
 ## C5: original public-loader PR
 
 PR #10 head is `b258ec517977a01df722909789da42746c39f28f`, base

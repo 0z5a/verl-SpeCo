@@ -10,8 +10,12 @@ parser.add_argument("log", type=Path)
 parser.add_argument("output", type=Path)
 args = parser.parse_args()
 log = args.log.read_text()
+# Ray can split a metric record mid-token and repeat the same actor prefix.
+metric_log = re.sub(
+    r"\n\x1b\[36m\(SpecoTaskRunner pid=\d+\)\x1b\[0m (?!step:)", "", log
+)
 steps = []
-for line in log.splitlines():
+for line in metric_log.splitlines():
     step = re.search(r"\bstep:(\d+) - ", line)
     if step is None:
         continue

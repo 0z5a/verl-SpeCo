@@ -125,18 +125,20 @@ Ray worker 最终执行路径为 `/experiment/variants/eagle-alias/verl_speco/`�
 修复使用算法已有的 block-drafter 分类，令 token、hidden、position 同位置对齐；EAGLE3/P-EAGLE 保持原移位。
 36 项窗口回归在原方法上 24 failed / 12 passed，在修复后 36 passed。相关套件 91 passed / 2 failed；两项失败均为已有 worker fixture 缺少 `replica_rank`，在保存的未修改主线结果中同样出现。Ruff、修改文件 mypy、diff 检查通过。
 
-DFlash 完整日志已取回：20 次 optimizer 更新、40 次 rank 提交，revision 1–19 均在后续 wake-up 恢复。最终 revision 20 没有后续 rollout。平均整步 60.10 s；actor 梯度/reward 仍为 0。训练结束后 DataLoader worker 64271 被 SIGKILL，外层退出码仍为 0，严格 clean-exit 检查未通过。现以 `data.dataloader_num_workers=0` 重跑。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
+DFlash 完整日志已取回：20 次 optimizer 更新、40 次 rank 提交，revision 1–19 均在后续 wake-up 恢复。最终 revision 20 没有后续 rollout。平均整步 60.10 s；actor 梯度/reward 仍为 0。训练结束后 DataLoader worker 64271 被 SIGKILL，外层退出码仍为 0，严格 clean-exit 检查未通过。随后以 `data.dataloader_num_workers=0` 独立重跑完成：退出码 0，无 traceback，严格检查通过；40 样本、20 optimizer 更新、40 rank 提交，revision 1–19 恢复。平均整步 83.19 s，acceptance 2.090–2.758，actor 梯度仍为 0。原始日志的第 4 步被 Ray 拆行；摘要器重接 actor 前缀后的续行，原日志保持不变。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
 
-| DFlash TP2 对照 | 原主线 | 对齐修复 | 速度提升 |
+| DFlash TP2 对照 | 原主线 | 对齐修复（最终独立重跑） | 速度提升 |
 |---|---:|---:|---|
 | 完成 RL 外循环 | 20 | 20 | 不适用 |
 | 实际 drafter optimizer 更新 | 0 | 20 | 不适用：基线训练失败 |
 | TP rank 发布确认 | 0 | 40 | 不适用 |
-| 平均整步耗时（含首步） | 31.65 s | 60.10 s | 不可比较：有效工作量不同 |
-| 干净退出检查 | 训练 traceback，失败 | 退出阶段 SIGKILL，失败 | 不适用 |
+| 平均整步耗时（含首步） | 31.65 s | 83.19 s | 不可比较：有效工作量不同 |
+| 干净退出检查 | 训练 traceback，失败 | 无 traceback，通过 | 不适用 |
 
-完整阶段审计：`evidence/l20-20260919/online-dflash-aligned-audit.json`。该运行证明对齐修复恢复了训练和发布，不证明原 PR #10 的 outer public-loader 路径、CUDA Graph 或 RL 质量。
+最终证据：`online-dflash-clean.log`、`online-dflash-clean.json`、`online-dflash-clean.exit`。最终运行关闭数据加载子进程；共享节点且非配对性能实验，不能比较两次修复运行的耗时来宣称加速。
+
+历史完整阶段审计：`evidence/l20-20260919/online-dflash-aligned-audit.json`。该运行证明对齐修复恢复了训练和发布，不证明原 PR #10 的 outer public-loader 路径、CUDA Graph 或 RL 质量。
 
 ## 模型清理
 
-按要求删除已完成在线验证的 EAGLE3 权重 `model.safetensors`，释放 436,899,680 bytes；配置、revision 和测试证据保留。Qwen3-4B target 与 DFlash 权重仍用于后续验证。分支已改为 `0z5a/speco-l20-validation`。
+按要求删除已完成在线验证的 EAGLE3 权重 `model.safetensors`，释放 436,899,680 bytes；配置、revision 和测试证据保留。DFlash 干净重跑通过后删除其 `model.safetensors`，再释放 1,074,860,568 bytes；配置和证据保留。Qwen3-4B target 暂留用于后续验证。分支已改为 `0z5a/speco-l20-validation`。
