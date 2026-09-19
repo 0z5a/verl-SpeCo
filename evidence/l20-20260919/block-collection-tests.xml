@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="93" time="3.838" timestamp="2026-09-19T17:54:34.416557+08:00" hostname="dadaxiaoxiaodeMacBook-Air.local"><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-dflash]" time="0.008" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-dflash2]" time="0.001" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-positions-peagle]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-dflash]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-dflash2]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-start-peagle]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-dflash]" time="0.001" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-dflash2]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[False-tail-peagle]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-dflash]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-dflash2]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-positions-peagle]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-dflash]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-dflash2]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-start-peagle]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-dflash]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-dflash2]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-dspark]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-domino]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-eagle3]" time="0.000" /><testcase classname="tests.integration.test_block_drafter_collection" name="test_collection_preserves_token_hidden_alignment[True-tail-peagle]" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_model_builds_conv_and_selector" time="0.535" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_plain_dflash_layers_keep_conv_hooks_inert" time="0.007" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_conv_is_identity_at_init" time="0.006" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_conv_does_not_leak_across_block_boundaries" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_conv_rejects_length_that_is_not_a_block_multiple" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_selector_pair_scores_match_the_sequential_selector" time="0.007" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_training_model_adds_selector_loss" time="0.020" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_selector_loss_does_not_backprop_into_the_backbone" time="0.079" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_training_model_rejects_restricted_vocab" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_backend_pins_conv_block_size_to_the_trainer_block_size" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_backend_is_registered_in_the_factory" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_uses_dflash_aux_layers" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_config_lifts_nested_dflash_config" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_config_routes_through_auto" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_acceptance_counts_stop_at_the_first_mismatch" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_acceptance_counts_treat_unscored_positions_as_terminal" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_acceptance_counts_do_not_assume_an_anchor_column" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_mean_acceptance_length_counts_the_target_bonus_token" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_config_reads_rope_theta_from_rope_parameters" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_top_level_rope_theta_wins_over_rope_parameters" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_rope_theta_defaults_when_neither_spelling_is_present" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_resolve_rope_theta_reads_config_objects_and_mappings" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_fallback_config_reads_the_target_rope_parameters" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_upstream_selector_codebooks_load_onto_the_embedding_keys" time="0.002" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_partially_renamed_dflash2_modules_fail_loud" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_plain_dflash_checkpoint_warm_starts_without_the_dflash2_modules" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_maps_to_the_vllm_dflash_method" time="0.071" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_config_serializes_the_runtime_dflash_config_block" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_maps_to_the_sglang_dflash_algorithm" time="0.001" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_reaches_the_sglang_aux_hidden_path" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_dflash2_architecture_classifies_as_a_dflash_config" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_scaled_rope_is_warned_about_not_silently_dropped" time="0.000" /><testcase classname="tests.integration.test_dflash2_backend_contract" name="test_default_rope_type_is_not_warned_about" time="0.000" /><testcase classname="tests.unit.test_collection_worker_transactions" name="test_collection_buffer_snapshot_restores_data_and_version" time="0.000" /><testcase classname="tests.unit.test_collection_worker_transactions" name="test_expired_collection_stages_are_removed" time="0.000" /><testcase classname="tests.unit.test_collection_worker_transactions" name="test_collect_only_rollback_discards_unpublished_feature_samples" time="0.000"><failure message="AttributeError: 'SpecoWorker' object has no attribute 'replica_rank'">def test_collect_only_rollback_discards_unpublished_feature_samples() -&gt; None:
+        worker, writer = _collect_only_worker()
+        worker._collection_commit_journals["collection-4"] = {
+            **worker._snapshot_collection_buffer(),
+            "feature_store_samples": ["sample-a"],
+        }
+    
+&gt;       worker.rollback_rollout_features([{"collection_id": "collection-4"}])
+
+tests/unit/test_collection_worker_transactions.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/verl/single_controller/base/decorator.py:431: in inner
+    return func(*args, **kwargs)
+.venv/lib/python3.12/site-packages/verl/utils/transferqueue_utils.py:378: in inner
+    return func(*args, **kwargs)
+verl_speco/workers/speco_worker.py:978: in rollback_rollout_features
+    return self._collection_worker_result(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;verl_speco.workers.speco_worker.SpecoWorker object at 0x1293e8440&gt;
+
+    def _collection_worker_result(
+        self,
+        *,
+        collection_id: str,
+        staged_samples: int = 0,
+        accepted_samples: int = 0,
+        rejected_samples: int = 0,
+        collected: bool = False,
+        reason: str,
+        buffer_version_before: int | None = None,
+        expired_stages: int = 0,
+    ) -&gt; dict[str, Any]:
+        if self.last_global_step is None:
+            raise RuntimeError(
+                "Cannot collect drafter samples before setting global_step"
+            )
+        source_global_step = int(self.last_global_step)
+        current_buffer_version = int(
+            self.trainer.buffer_version if self.trainer is not None else 0
+        )
+        if buffer_version_before is None:
+            buffer_version_before = current_buffer_version
+        return {
+            "collection_id": collection_id,
+&gt;           "worker_id": str(self.replica_rank),
+            "worker_incarnation": self.worker_incarnation,
+            "source_global_step": source_global_step,
+            "staged_samples": staged_samples,
+            "accepted_samples": accepted_samples,
+            "rejected_samples": rejected_samples,
+            "buffer_version_before": buffer_version_before,
+            "buffer_version_after": current_buffer_version,
+            "data_version": source_global_step,
+            "collected": collected,
+            "reason": reason,
+            "expired_stages": expired_stages,
+        }
+E       AttributeError: 'SpecoWorker' object has no attribute 'replica_rank'
+
+verl_speco/workers/speco_worker.py:823: AttributeError</failure></testcase><testcase classname="tests.unit.test_collection_worker_transactions" name="test_collect_only_finalize_publishes_staged_feature_samples" time="0.000"><failure message="AttributeError: 'SpecoWorker' object has no attribute 'replica_rank'">def test_collect_only_finalize_publishes_staged_feature_samples() -&gt; None:
+        worker, writer = _collect_only_worker()
+        worker._collection_commit_journals["collection-4"] = {
+            **worker._snapshot_collection_buffer(),
+            "feature_store_samples": ["sample-a"],
+        }
+    
+&gt;       worker.finalize_rollout_features([{"collection_id": "collection-4"}])
+
+tests/unit/test_collection_worker_transactions.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/verl/single_controller/base/decorator.py:431: in inner
+    return func(*args, **kwargs)
+.venv/lib/python3.12/site-packages/verl/utils/transferqueue_utils.py:378: in inner
+    return func(*args, **kwargs)
+verl_speco/workers/speco_worker.py:997: in finalize_rollout_features
+    return self._collection_worker_result(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;verl_speco.workers.speco_worker.SpecoWorker object at 0x1293ebf50&gt;
+
+    def _collection_worker_result(
+        self,
+        *,
+        collection_id: str,
+        staged_samples: int = 0,
+        accepted_samples: int = 0,
+        rejected_samples: int = 0,
+        collected: bool = False,
+        reason: str,
+        buffer_version_before: int | None = None,
+        expired_stages: int = 0,
+    ) -&gt; dict[str, Any]:
+        if self.last_global_step is None:
+            raise RuntimeError(
+                "Cannot collect drafter samples before setting global_step"
+            )
+        source_global_step = int(self.last_global_step)
+        current_buffer_version = int(
+            self.trainer.buffer_version if self.trainer is not None else 0
+        )
+        if buffer_version_before is None:
+            buffer_version_before = current_buffer_version
+        return {
+            "collection_id": collection_id,
+&gt;           "worker_id": str(self.replica_rank),
+            "worker_incarnation": self.worker_incarnation,
+            "source_global_step": source_global_step,
+            "staged_samples": staged_samples,
+            "accepted_samples": accepted_samples,
+            "rejected_samples": rejected_samples,
+            "buffer_version_before": buffer_version_before,
+            "buffer_version_after": current_buffer_version,
+            "data_version": source_global_step,
+            "collected": collected,
+            "reason": reason,
+            "expired_stages": expired_stages,
+        }
+E       AttributeError: 'SpecoWorker' object has no attribute 'replica_rank'
+
+verl_speco/workers/speco_worker.py:823: AttributeError</failure></testcase><testcase classname="tests.unit.test_collection_adapter" name="test_sglang_adapter_buckets_by_replica_and_pads_dispatch_mesh" time="0.000" /><testcase classname="tests.unit.test_collection_adapter" name="test_oldlogprob_adapter_uses_explicit_owners_and_preserves_samples" time="0.000" /><testcase classname="tests.unit.test_collection_adapter" name="test_collection_adapter_rejects_out_of_range_owner" time="0.000" /><testcase classname="tests.unit.test_collection_adapter" name="test_sglang_adapter_requires_replica_rank" time="0.000" /><testcase classname="tests.unit.test_collection_adapter" name="test_collection_adapter_keeps_owner_buckets_when_dispatch_is_smaller" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_sets_step_submits_buckets_and_returns_outcome" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_partial_worker_acceptance_fails_closed" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_worker_rejection_fails_closed" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_worker_version_mismatch_fails_closed" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_missing_owner_result_fails_closed_even_when_total_matches" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_stage_failure_aborts_before_commit" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_id_must_match_before_worker_rpc" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_commit_validation_failure_rolls_back_all_workers" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_finalize_failure_rolls_back_and_fails_collection" time="0.001" /><testcase classname="tests.unit.test_collection_strategy" name="test_inactive_collection_plan_does_not_call_executor" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_empty_collection_payload_is_skipped" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_executor_sends_control_request_for_empty_worker_bucket" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_strategy_accepts_zero_sample_result_for_empty_bucket" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_strategy_rejects_missing_nonempty_owner_result" time="0.000" /><testcase classname="tests.unit.test_collection_strategy" name="test_collection_rejects_payload_from_another_source" time="0.000" /></testsuite></testsuites>

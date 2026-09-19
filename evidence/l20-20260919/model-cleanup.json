@@ -1,0 +1,16 @@
+{
+  "removed": [
+    {
+      "model": "AngelSlim/Qwen3-4B_eagle3",
+      "revision": "fd331e59626c8e95c392381a16ee59d518727fbb",
+      "path": "/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle/model.safetensors",
+      "bytes": 436899680,
+      "reason": "Completed 20-step online validation; original PR #10 blocked on loader dependency."
+    }
+  ],
+  "retained": [
+    "Qwen3-4B target required for remaining tests",
+    "DFlash draft under validation"
+  ],
+  "configs_and_evidence_retained": true
+}

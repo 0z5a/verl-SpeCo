@@ -1,0 +1,13 @@
+{
+  "commit": "1093e7b",
+  "local_source_sha256": "b8d86625e61fc1246ad95143e975d041975940ffd5eba9265ce7614ad01f3719",
+  "local_ast_sha256": "f6105c5ed75d00dfcca5c4217d41522e65c4dbef2d627b5d3b84b54fd87aab78",
+  "source": "/experiment/variants/block-alignment",
+  "c2_enabled": false,
+  "eager": true,
+  "tp": 2,
+  "tested_source_sha256": "e864bb29eb02faa7f9861a16c0573b10ee55d70bba9ba2989b9d4a7901d2380c",
+  "tested_ast_sha256": "f6105c5ed75d00dfcca5c4217d41522e65c4dbef2d627b5d3b84b54fd87aab78",
+  "ast_equal": true,
+  "difference": "Comment clarification only"
+}

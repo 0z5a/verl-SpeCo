@@ -1,0 +1,20 @@
+{
+  "regression_baseline": {
+    "failed": 24,
+    "passed": 12,
+    "source": "HEAD baseline collect_online_data method executed with original module globals"
+  },
+  "regression_candidate": {
+    "passed": 36
+  },
+  "related_suite": {
+    "passed": 91,
+    "failed": 2,
+    "failures": "Existing collection worker fixtures lack replica_rank; matching failures in baseline-final.xml and baseline.xml"
+  },
+  "ruff": "PASS",
+  "mypy_follow_imports_skip": "PASS: 2 source files",
+  "new_exception_handlers": 0,
+  "new_any_annotations": 0,
+  "new_getattr_calls": 0
+}

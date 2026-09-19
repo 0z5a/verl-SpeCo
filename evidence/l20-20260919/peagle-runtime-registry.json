@@ -1,0 +1,26 @@
+{
+  "vllm_version": "0.29.0",
+  "speco_exported_architecture": "LlamaForCausalLMPeagle",
+  "exported_architecture_registered": false,
+  "related_registered_architectures": {
+    "PEagleDraftModel": [
+      "llama_eagle3",
+      "Eagle3LlamaForCausalLM"
+    ],
+    "PeagleLlamaForCausalLM": [
+      "llama_eagle3",
+      "Eagle3LlamaForCausalLM"
+    ],
+    "PeagleQwen3ForCausalLM": [
+      "qwen3_eagle3",
+      "Eagle3Qwen3ForCausalLM"
+    ]
+  },
+  "source_sha256": {
+    "model_executor/models/registry.py": "fef8293fe19cef01768a4c5bd8adc05e120202f1c1597eb264d090672894fbd7",
+    "model_executor/models/llama_eagle3.py": "5be7ee5513499b982d08803ac138926954377c858ffc2f2ebfe123e65556a61a",
+    "config/speculative.py": "cf8fcd342b6e863bac18415705a0ec2864c12b9def8e23ee84ea3ab4ede19847"
+  },
+  "veomni_installed": false,
+  "parameter_and_logit_parity": "NOT_RUN"
+}

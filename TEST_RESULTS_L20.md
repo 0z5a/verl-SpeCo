@@ -116,3 +116,17 @@ Ray worker 最终执行路径为 `/experiment/variants/eagle-alias/verl_speco/`�
 真实 checkpoint 首轮重跑出现 OOM，进程清单定位到本任务旧 VLLM worker 残留；清理后 GPU 2/3 各约 932 MiB 占用，再按相同配置运行。该 OOM 不作为干净环境容量结论。
 
 清理后的最终运行完成 20 步，结论见本文首表；下方历史失败记录不替代最终运行结果。
+
+## DFlash 在线对齐回归
+
+相同 target、TP2、BF16、真实 DFlash checkpoint，20 轮首次运行完成但每轮训练失败：
+`input_rows=34, hidden_rows=33, mask_rows=34`。原收集路径把 EAGLE3 的后移 token 窗口用于 block drafter；外层捕获异常后只报告 `no_trainable_batch`，退出码 0 不能说明 E2E 通过。
+
+修复使用算法已有的 block-drafter 分类，令 token、hidden、position 同位置对齐；EAGLE3/P-EAGLE 保持原移位。
+36 项窗口回归在原方法上 24 failed / 12 passed，在修复后 36 passed。相关套件 91 passed / 2 failed；两项失败均为已有 worker fixture 缺少 `replica_rank`，在保存的未修改主线结果中同样出现。Ruff、修改文件 mypy、diff 检查通过。
+
+DFlash 的修复后 GPU 运行结果尚待完成，不填写速度收益。P-EAGLE runtime 的源码兼容矩阵见 `experiment/l20/PEAGLE_COMPATIBILITY.md`；尚无 logits parity。
+
+## 模型清理
+
+按要求删除已完成在线验证的 EAGLE3 权重 `model.safetensors`，释放 436,899,680 bytes；配置、revision 和测试证据保留。Qwen3-4B target 与 DFlash 权重仍用于后续验证。分支已改为 `0z5a/speco-l20-validation`。
