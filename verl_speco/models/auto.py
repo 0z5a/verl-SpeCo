@@ -29,6 +29,7 @@ from .eagle.llama_eagle import LlamaForCausalLMEagle3
 _EAGLE3_ARCHITECTURE_ALIASES = {
     "LlamaForCausalLMEagle3",
     "Qwen3Eagle3Model",
+    "Eagle3LlamaForCausalLM",
 }
 
 _DSPARK_ARCHITECTURE_ALIASES = {
@@ -200,6 +201,7 @@ class AutoDraftModelConfig:
     _config_mapping = {
         "LlamaForCausalLMEagle3": LlamaConfig,
         "Qwen3Eagle3Model": LlamaConfig,
+        "Eagle3LlamaForCausalLM": LlamaConfig,
         "DFlashDraftModel": DFlashConfig,
     }
 

@@ -42,13 +42,14 @@ def _minimal_eagle3_config(**overrides) -> dict:
     return config
 
 
-def test_qwen3_eagle3_config_alias_preserves_five_target_layers(tmp_path) -> None:
+@pytest.mark.parametrize("architecture", ["Qwen3Eagle3Model", "Eagle3LlamaForCausalLM"])
+def test_eagle3_config_alias_preserves_five_target_layers(tmp_path, architecture) -> None:
     pytest.importorskip("transformers")
     from verl_speco.models.auto import AutoDraftModelConfig
 
     config_path = tmp_path / "config.json"
     config = _minimal_eagle3_config(
-        architectures=["Qwen3Eagle3Model"],
+        architectures=[architecture],
         target_layer_ids=[1, 9, 17, 25, 33],
     )
     config_path.write_text(json.dumps(config), encoding="utf-8")
