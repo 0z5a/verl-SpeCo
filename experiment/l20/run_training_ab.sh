@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 cd /experiment
 export CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 OMP_NUM_THREADS=4
 export HF_HOME=/experiment/.cache/huggingface
@@ -13,7 +14,7 @@ for tokens in 256 1024; do
       source=/experiment/variants/patch
       partitions=2
     fi
-    .venv-clean/bin/python benchmark_training.py --source "$source" \
+    .venv-clean/bin/python "$SCRIPT_DIR/benchmark_training.py" --source "$source" \
       --target /experiment/models/target --tokens "$tokens" --partitions "$partitions" \
       --output "$RUN_DIR/train-${tokens}-${arm}.json" \
       > "$RUN_DIR/train-${tokens}-${arm}.log" 2>&1

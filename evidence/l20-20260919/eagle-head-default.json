@@ -1,0 +1,30 @@
+[
+  {
+    "rank": 0,
+    "draft_type": "Eagle3LlamaForCausalLM",
+    "draft_vocab_size": 32000,
+    "head_shape": [
+      16000,
+      2560
+    ],
+    "shares_target_head": false,
+    "head_in_named_parameters": true,
+    "head_aliases": [
+      "lm_head.weight"
+    ]
+  },
+  {
+    "rank": 1,
+    "draft_type": "Eagle3LlamaForCausalLM",
+    "draft_vocab_size": 32000,
+    "head_shape": [
+      16000,
+      2560
+    ],
+    "shares_target_head": false,
+    "head_in_named_parameters": true,
+    "head_aliases": [
+      "lm_head.weight"
+    ]
+  }
+]

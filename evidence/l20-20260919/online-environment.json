@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "torch": "2.13.0+cu130",
+    "vllm": "0.29.0",
+    "verl": "0.9.0",
+    "transformers": "5.10.4",
+    "tokenizers": "0.22.2",
+    "flash-attn": "2.8.3"
+  },
+  "extension": "/experiment/.venv-clean/lib/python3.12/site-packages/flash_attn_2_cuda.cpython-312-x86_64-linux-gnu.so",
+  "extension_sha256": "6c24c1b210de3594d0882e833fa37bdd730ce11efa093dcab94994b5af7cd98f",
+  "build_arch": "sm80",
+  "tested_gpu": "L20 sm89"
+}

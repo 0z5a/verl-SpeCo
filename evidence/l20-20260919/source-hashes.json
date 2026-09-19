@@ -1,13 +1,17 @@
 {
   "experiment/l20/benchmark_training.py": "7ce79d17f452bff7f6de02b96c1090e83f3284e305d1dee9e9e90387c7368272",
+  "experiment/l20/check_eagle_head.py": "f34b498cae7dea3383173168b7f42fa485796eb3a647f8d797eb875dd8ba2160",
+  "experiment/l20/check_flash_attention.py": "0364f7dcd3fa96bdaaa69a8a33abdc4facb151653d82f0997ca8109c578cba39",
   "experiment/l20/check_fsdp_partition.py": "7f7a28dd63132c6dde03c23e143612d9add0daac392f7f5e200f1e6b6a3054c6",
   "experiment/l20/check_public_loader.py": "4876d7ff8fc5a817d72771c1bed3704a747eef54bbb6dc80d707f0a55ce78722",
   "experiment/l20/download_models.py": "f5ecde5f07217abba1bf9c13e595ca9bf68b5aa0ff0a4b6dc8c76b05f8231f65",
   "experiment/l20/manifest.py": "931b9ca5769478658e38f04a685ee11ee0ccd2b6db60cb9a7ced05d48cc6e898",
   "experiment/l20/prepare_data.py": "ed992baaea660d172d2b9566dfa5ce0481f3cd16ec127ccd1696801f63376e1b",
-  "experiment/l20/run_online.sh": "a95eed9be3840bfc51cfbaa4aa9f1ad852a3b9a70fb15f85ab9cb87c632ff910",
-  "experiment/l20/run_training_ab.sh": "2bbaffede5fea21cbdfd82dba7a316dfe442fb5cc121e3777a6ea1b02f33f0e0",
+  "experiment/l20/run_online.sh": "3db6a42c847baad51ccfc738cca3775d7962203a8b76d8766d9184c5696a199e",
+  "experiment/l20/run_training_ab.sh": "13311cc1adc667b9e182cd1779475ebf44cc770b5d9f76740565b86dccf61a6f",
   "experiment/l20/setup.sh": "a80ad1ac99cd36a8d40d178a12cfe80d84873835242b264ecc2f49a2efc96690",
+  "experiment/l20/setup_online.sh": "1fec96b6c388b279e5ab0b7b6db6b16e6c7f6934b032b3ca1fd044ade0a31f07",
+  "experiment/l20/summarize_online.py": "0eac82cfe6b19fa2ee348ef29563499624c06c2b3797589cbae841b23765bacc",
   "verl_speco/backends/peagle_trainer_backend.py": "4571702bed953f3df1f4561f2a0b1b5597248cbeb91d4936b604835e3a3b0ceb",
   "verl_speco/models/auto.py": "5f33dec4d71aea9bbe8be724626fa2520cf790cc664ae255598c970b1dfb0903"
 }

@@ -1,0 +1,2 @@
+torch.float16: CUDA forward/backward and padding PASS
+torch.bfloat16: CUDA forward/backward and padding PASS

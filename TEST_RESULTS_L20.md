@@ -2,7 +2,24 @@
 
 提交者：0z5a。基线：`18dd7094c35d61a1710a73e8b3bd9630d0d0ffb3`。
 
-**完整训练—发布—rollout E2E 尚未通过。下表只衡量 C2 的完整 drafter optimizer step，不是完整 RL step。该改动是显存与计算时间的交换，不是异步加速。**
+**真实 EAGLE3 在线链路已完成 20 步；C1–C5 整体尚未完成。下表只衡量 C2 的完整 drafter optimizer step，不是完整 RL step。C2 是显存与计算时间的交换，不是异步加速。**
+
+## 在线 EAGLE3：20 步结果
+
+基线加 EAGLE3 架构别名补丁；真实 Qwen3-4B/EAGLE3 checkpoint，2×L20、TP2、FSDP2、BF16 actor，真实权重 `load_format=auto`，32-token feature 窗口，异步 compat publish。未启用 C2。
+
+| 核验项 | 实测结果 |
+|---|---:|
+| 完整运行 | 20/20 步，退出码 0，无 traceback |
+| drafter 样本收集 | 40 |
+| drafter optimizer | 每步成功，共 20 步 |
+| 发布完成 | revision 1–20，每个均双 TP rank 提交，13 weights/rank |
+| 后续 rollout | 使用此前已发布 revision；sleep/wake 保留 revision |
+| 平均整步时间（含首步） | 27.62 s，单次运行，无速度对照结论 |
+| acceptance length | 1.709–2.039 |
+| actor 梯度 / reward | 全为 0；不证明 actor 学习或 RL 质量 |
+
+证据：`online-eagle3-final.json`、`online-eagle3-clean-final.log`。最后一次发布发生于训练结束，revision 20 不包含后续训练 rollout；revision 1–19 的后续 rollout 已执行。这是当前主线加 alias 补丁的训练—发布生命周期验证，**不是原 PR #10 的 public-loader E2E，也不是 C2/C1/C3/C4 验证**。
 
 ## C2：速度与显存
 
@@ -84,3 +101,18 @@ Ray worker 最终执行路径为 `/experiment/variants/eagle-alias/verl_speco/`�
 
 代码提交者为 0z5a；C2 commit `04bf864`，EAGLE3 alias commit `bc00ecc`。
 2026-09-19 GitHub API 返回的 main SHA 仍为本报告固定基线；git fetch 连接超时，不声称 fetch 成功。
+
+### 在线运行的进一步结果
+
+- FP32 actor 的 10 GiB bucket 仍会拆分 tied weights；20 GiB bucket 在 L20 上 OOM。
+- BF16 actor + 10 GiB bucket + rollout memory utilization 0.25 可通过 actor 权重同步。
+- FlashAttention 2.8.3 源码构建完成，FP16/BF16 CUDA 前向、反向、padding 均通过；版本和扩展 hash 见 `online-environment.json`。
+- 默认 512-token feature 窗口大于 64-token response，导致零训练；该运行不算闭环。修正为 32-token 窗口与 remove-padding 后，首步收集 2 个样本，完成 1 个 drafter optimizer step。
+- 随后的异步发布在两个 TP rank 都报 `missing=['lm_head.weight']`。首步 `drafter/published=1` 只表示异步任务已提交，后续 RPC 实际失败；该指标不能单独证明发布成功。详见 `online-first-step.json` 和原始日志。
+- 该次运行的 20 步训练—发布—后续 rollout E2E 未通过，未以这组失败实验申报速度收益。
+
+后续诊断发现在线 rollout 的默认 `load_format=dummy` 未加载真实 draft checkpoint，发布时参数清单缺少独立 `lm_head.weight`。独立 V1/V2 实权重双卡 probe 均确认 32k draft head 存在、每卡形状 `[16000, 2560]`，且不共享 target head。此前 dummy 运行不构成真实 checkpoint 的 E2E。最终复现脚本显式设置 `load_format=auto`。
+
+真实 checkpoint 首轮重跑出现 OOM，进程清单定位到本任务旧 VLLM worker 残留；清理后 GPU 2/3 各约 932 MiB 占用，再按相同配置运行。该 OOM 不作为干净环境容量结论。
+
+清理后的最终运行完成 20 步，结论见本文首表；下方历史失败记录不替代最终运行结果。
