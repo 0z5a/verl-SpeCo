@@ -1,0 +1,8 @@
+{
+  "scope": "single-sequence causal prefill, BF16, TP1; not masked-depth decode",
+  "tokens": 5,
+  "max_logit_error": 0.0021514892578125,
+  "argmax_equal": true,
+  "atol": 0.01,
+  "rtol": 0.02
+}

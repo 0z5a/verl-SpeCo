@@ -15,13 +15,12 @@ def capture_first_forward(worker):
 
     draft = worker.get_draft_model()
     signature = inspect.signature(draft.forward)
-    captured = False
+    records = []
     initial_inputs = {}
 
     def capture_inputs(module, inputs, kwargs):
-        if captured:
-            return
         arguments = signature.bind(*inputs, **kwargs).arguments
+        initial_inputs.clear()
         initial_inputs.update(
             (key, value.detach().cpu())
             for key, value in arguments.items()
@@ -29,13 +28,9 @@ def capture_first_forward(worker):
         )
 
     def capture(module, inputs, kwargs, outputs):
-        nonlocal captured
-        if captured:
-            return
-        captured = True
         metadata = get_forward_context().attn_metadata
         record = {
-            "inputs": initial_inputs,
+            "inputs": dict(initial_inputs),
             "outputs": [value.detach().cpu() for value in outputs],
             "logits": module.compute_logits(outputs[0]).detach().cpu(),
             "metadata": {
@@ -47,9 +42,12 @@ def capture_first_forward(worker):
                 for name, layer in metadata.items()
             },
         }
-        torch.save(
-            record, "/experiment/evidence/l20-20260919/tiny-peagle-first-forward.pt"
-        )
+        records.append(record)
+        torch.save(records, "/experiment/evidence/l20-20260919/tiny-peagle-forwards.pt")
+        if len(records) == 1:
+            torch.save(
+                record, "/experiment/evidence/l20-20260919/tiny-peagle-first-forward.pt"
+            )
 
     draft.register_forward_pre_hook(capture_inputs, with_kwargs=True)
     draft.register_forward_hook(capture, with_kwargs=True)
@@ -118,7 +116,7 @@ if __name__ == "__main__":
         dtype="bfloat16",
         enforce_eager=True,
         max_model_len=128,
-        max_num_seqs=4,
+        max_num_seqs=1,
         gpu_memory_utilization=0.1,
         enable_prefix_caching=False,
         speculative_config=speculative,

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "experiment/l20/tiny-peagle/target/model.safetensors",
+    "bytes": 727208,
+    "sha256": "9585b07483bbd4572bb21839c21abcaebd375ac9c8bfaecfd542c6cea0e4dbed"
+  },
+  {
+    "path": "experiment/l20/tiny-peagle/draft-eagle3/model.safetensors",
+    "bytes": 514920,
+    "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+  },
+  {
+    "path": "experiment/l20/tiny-peagle/draft-mapped/model.safetensors",
+    "bytes": 514920,
+    "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+  },
+  {
+    "path": "experiment/l20/tiny-peagle/draft-original/model.safetensors",
+    "bytes": 514920,
+    "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+  }
+]
