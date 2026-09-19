@@ -16,20 +16,26 @@ def capture_first_forward(worker):
     draft = worker.get_draft_model()
     signature = inspect.signature(draft.forward)
     captured = False
+    initial_inputs = {}
+
+    def capture_inputs(module, inputs, kwargs):
+        if captured:
+            return
+        arguments = signature.bind(*inputs, **kwargs).arguments
+        initial_inputs.update(
+            (key, value.detach().cpu())
+            for key, value in arguments.items()
+            if isinstance(value, torch.Tensor)
+        )
 
     def capture(module, inputs, kwargs, outputs):
         nonlocal captured
         if captured:
             return
         captured = True
-        arguments = signature.bind(*inputs, **kwargs).arguments
         metadata = get_forward_context().attn_metadata
         record = {
-            "inputs": {
-                key: value.detach().cpu()
-                for key, value in arguments.items()
-                if isinstance(value, torch.Tensor)
-            },
+            "inputs": initial_inputs,
             "outputs": [value.detach().cpu() for value in outputs],
             "logits": module.compute_logits(outputs[0]).detach().cpu(),
             "metadata": {
@@ -45,6 +51,7 @@ def capture_first_forward(worker):
             record, "/experiment/evidence/l20-20260919/tiny-peagle-first-forward.pt"
         )
 
+    draft.register_forward_pre_hook(capture_inputs, with_kwargs=True)
     draft.register_forward_hook(capture, with_kwargs=True)
 
 
@@ -79,16 +86,20 @@ def check_parameters(worker):
             used.add(target)
         torch.testing.assert_close(actual, value.to(actual), rtol=0, atol=0)
         compared += 1
+    runtime_only = sorted(parameters.keys() - used)
+    assert runtime_only == ["model.layers.1.hidden_norm.weight"], runtime_only
     return {
         "class": type(draft).__name__,
         "compared_logical_tensors": compared,
-        "runtime_only_parameters": sorted(parameters.keys() - used),
+        "runtime_only_parameters": runtime_only,
     }
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=["baseline", "draft-original", "draft-mapped"])
+    parser.add_argument(
+        "mode", choices=["baseline", "draft-original", "draft-mapped", "draft-eagle3"]
+    )
     args = parser.parse_args()
     root = Path("/experiment/tiny-peagle")
     speculative = (

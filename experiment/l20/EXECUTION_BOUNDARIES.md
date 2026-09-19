@@ -41,6 +41,23 @@ must use dedicated processes for the drafter group. FSDP2 still requires meta
 initialization and either checkpoint loading or `model.init_weights()`;
 the existing initialized training wrapper cannot simply be handed to it.
 
+The pinned wheel was then installed with `--no-deps --target
+/experiment/veomni-deps`; the existing runtime dependencies were not upgraded.
+`check_veomni_drafter.py` ran in two dedicated L20 processes using the actual
+P-EAGLE training wrapper, meta parameters, a full wrapper checkpoint, FP32,
+unequal rank token counts and fixed COD seeds. Both ranks reported exact
+parameter/buffer restoration and loss/gradient/SGD parity against native
+FSDP2 (`atol=2e-5`, `rtol=2e-4`). Target logits were supplied separately;
+no target model parameters were included in the optimizer. This resolves the
+small dense-wrapper materialization question, not scheduler integration,
+optimizer checkpoint/RNG recovery, BF16 performance or full RL E2E.
+
+```bash
+PYTHONPATH=/experiment/veomni-deps:/experiment/online-deps:/experiment \
+  OMP_NUM_THREADS=4 /experiment/.venv-clean/bin/python -m torch.distributed.run \
+  --nproc-per-node=2 --master-port=29589 /experiment/check_veomni_drafter.py
+```
+
 ## C5: original public-loader PR
 
 PR #10 head is `b258ec517977a01df722909789da42746c39f28f`, base

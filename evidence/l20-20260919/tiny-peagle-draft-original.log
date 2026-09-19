@@ -1,0 +1,33 @@
+INFO 09-19 12:17:07 [api_utils.py:286] non-default args: {'skip_tokenizer_init': True, 'dtype': 'bfloat16', 'max_model_len': 128, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.1, 'max_num_seqs': 4, 'disable_log_stats': True, 'enforce_eager': True, 'speculative_config': {'method': 'eagle3', 'model': '/experiment/tiny-peagle/draft-original', 'num_speculative_tokens': 3, 'parallel_drafting': True}, 'model': '/experiment/tiny-peagle/target'}
+INFO 09-19 12:17:07 [model.py:684] Resolved architecture: LlamaForCausalLM
+INFO 09-19 12:17:07 [model.py:2352] Downcasting torch.float32 to torch.bfloat16.
+INFO 09-19 12:17:07 [model.py:2021] Using max model len 128
+ERROR 09-19 12:17:07 [repo_utils.py:119] Error parsing config for /experiment/tiny-peagle/draft-original: The checkpoint you are trying to load has model type `llama_peagle` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+ERROR 09-19 12:17:07 [repo_utils.py:119] 
+ERROR 09-19 12:17:07 [repo_utils.py:119] You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`, retrying 1 of 2
+ERROR 09-19 12:17:09 [repo_utils.py:117] Error parsing config for /experiment/tiny-peagle/draft-original: The checkpoint you are trying to load has model type `llama_peagle` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+ERROR 09-19 12:17:09 [repo_utils.py:117] 
+ERROR 09-19 12:17:09 [repo_utils.py:117] You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`
+Traceback (most recent call last):
+  File "/experiment/check_tiny_peagle_serving.py", line 102, in <module>
+    llm = LLM(
+          ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py", line 171, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/engine/arg_utils.py", line 2387, in create_engine_config
+    speculative_config = self.create_speculative_config(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/engine/arg_utils.py", line 1952, in create_speculative_config
+    return SpeculativeConfig(**self.speculative_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for SpeculativeConfig
+  Value error, The checkpoint you are trying to load has model type `llama_peagle` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+
+You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git` [type=value_error, input_value=ArgsKwargs((), {'model': ...config_format': 'auto'}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error

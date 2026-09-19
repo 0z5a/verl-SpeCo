@@ -53,4 +53,8 @@ config.update(
     eagle_config={"eagle_aux_hidden_state_layer_ids": [0, 1, 2]},
 )
 config_path.write_text(json.dumps(config, indent=2) + "\n")
+eagle3 = args.output / "draft-eagle3"
+shutil.copytree(mapped, eagle3, dirs_exist_ok=True)
+config["architectures"] = ["Eagle3LlamaForCausalLM"]
+(eagle3 / "config.json").write_text(json.dumps(config, indent=2) + "\n")
 print(args.output)

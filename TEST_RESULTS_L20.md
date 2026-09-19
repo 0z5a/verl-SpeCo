@@ -58,10 +58,10 @@ Algorithm 1 分区归属依据 [NeMo AutoModel 固定源码](https://github.com/
 
 | 项目 | 本次状态 |
 |---|---|
-| C1 P-EAGLE serving | 未实现；主线仍明确拒绝该 rollout 算法，未删除 guard 假装支持。 |
+| C1 P-EAGLE serving | 小模型别名配置完成 TP1 推测生成，25 个 tensor 精确加载，2×16 token 与基线一致。draft logits oracle 仍在排查；未删除 guard。 |
 | C2 sequence partition | 开发版本；FP32 正确性、两卡 FSDP2 和上述实际训练步 A/B 已执行。尚无完整 RL E2E。 |
 | C3 idle worker | 未实现；现有 scheduler 只执行 sync，idle enum 本身不是执行能力。 |
-| C4 VeOmni drafter | 未实现；当前 drafter 仍经 FSDP 包装，不能把 VeOmni actor 当成 drafter 验证。 |
+| C4 VeOmni drafter | VeOmni 0.1.11 两卡 dense P-EAGLE wrapper oracle 双 rank 通过：meta checkpoint/buffer 恢复、FP32 loss/梯度/SGD 与 FSDP2 对齐。尚无生产 engine 接线或完整 RL E2E。 |
 | C5 PR #10 | 真实 Qwen3-4B + EAGLE3 CUDA 推理生成 16 token；public loader 接受 `fc.weight`，拒绝 `model.fc.weight`，参数保持不变。缺少 #10 要求的幂等前缀依赖已复现，见 `public-loader.json`。不是原 PR 的训练—发布闭环通过。 |
 
 ## 复现
