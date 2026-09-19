@@ -1,0 +1,13 @@
+{
+  "generated_token_count": 16,
+  "loader": [
+    {
+      "model_class": "Eagle3LlamaForCausalLM",
+      "loader_source_sha256": "58eb0277207bf0100ea82d56518d024f4023149276f9a90abeff05b444fb3c2f",
+      "unprefixed_load": "PASS",
+      "prefixed_load": "FAIL",
+      "error": "There is no module or parameter named 'model' in LlamaModel. The available parameters belonging to  (LlamaModel) are: {'layers.0.post_attention_layernorm.weight', 'norm.weight', 'embed_tokens.weight', 'layers.0.input_layernorm.weight', 'layers.0.self_attn.qkv_proj.weight', 'layers.0.hidden_norm.weight', 'layers.0.mlp.gate_up_proj.weight', 'fc.weight', 'layers.0.self_attn.o_proj.weight', 'layers.0.mlp.down_proj.weight'}",
+      "parameter_unchanged": true
+    }
+  ]
+}

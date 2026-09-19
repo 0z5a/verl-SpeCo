@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="21" time="4.309" timestamp="2026-09-19T15:55:45.836514+08:00" hostname="dadaxiaoxiaodeMacBook-Air.local"><testcase classname="tests.integration.test_peagle_backend_contract" name="test_cod_sampling_structure" time="3.576" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_mask_predicate" time="0.004" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_mask_isolates_documents" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_model_modules" time="0.005" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_kl_loss" time="0.532" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_backend_metadata" time="0.000" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_vllm_guardrail" time="0.050" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_rejects_reduced_draft_vocab_without_mapping" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_identity_vocab_mapping_passes_validation" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_vocab_mapping_validation_names_the_failing_algorithm" time="0.000" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_batch_assembly_matches_reference_shift" time="0.008" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_layers_are_callable_fsdp_wrap_targets" time="0.000" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_training_model_wraps_the_draft" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_compute_loss_calls_the_module_forward" time="0.000" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_rejects_packed_lengths_for_a_multi_row_batch" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_rejects_packed_lengths_that_do_not_cover_the_sequence" time="0.001" /><testcase classname="tests.integration.test_peagle_backend_contract" name="test_peagle_checkpoint_export_unwraps_the_training_model" time="0.000"><failure message="AttributeError: 'DrafterBaseTrainer' object has no attribute 'backend'">def test_peagle_checkpoint_export_unwraps_the_training_model() -&gt; None:
+        pytest.importorskip("torch")
+        from types import SimpleNamespace
+
+        base_trainer_mod = pytest.importorskip("verl_speco.trainer.base_trainer")
+
+        draft = SimpleNamespace(name="draft")
+        trainer = object.__new__(base_trainer_mod.DrafterBaseTrainer)
+        trainer.model = SimpleNamespace(draft_model=draft)
+
+&gt;       export_model, strip_prefixes = trainer._get_pretrained_export_model()
+
+tests/integration/test_peagle_backend_contract.py:453:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+verl_speco/trainer/base_trainer.py:1398: in _get_pretrained_export_model
+    if self._is_block_drafter_backend() and hasattr(model, "draft_model"):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;verl_speco.trainer.base_trainer.DrafterBaseTrainer object at 0x119cf6690&gt;
+
+    def _is_block_drafter_backend(self) -&gt; bool:
+&gt;       return getattr(self.backend, "model_type", None) in {
+            "dflash",
+            "dflash2",
+            "dspark",
+            "domino",
+        }
+E       AttributeError: 'DrafterBaseTrainer' object has no attribute 'backend'
+
+verl_speco/trainer/base_trainer.py:821: AttributeError</failure></testcase><testcase classname="tests.integration.test_eagle3_aux_hidden_contract" name="test_eagle3_config_alias_preserves_five_target_layers[Qwen3Eagle3Model]" time="0.002" /><testcase classname="tests.integration.test_eagle3_aux_hidden_contract" name="test_eagle3_config_alias_preserves_five_target_layers[Eagle3LlamaForCausalLM]" time="0.001" /><testcase classname="tests.integration.test_eagle3_aux_hidden_contract" name="test_eagle3_model_uses_dynamic_aux_hidden_count" time="0.008" /><testcase classname="tests.integration.test_eagle3_aux_hidden_contract" name="test_eagle3_model_defaults_missing_pretraining_tp" time="0.003" /></testsuite></testsuites>

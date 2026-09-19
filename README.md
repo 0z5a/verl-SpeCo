@@ -85,6 +85,12 @@ P-EAGLE training is available, but its vLLM parallel-drafting rollout runtime
 is not wired into this overlay yet. Keep rollout drafter serving disabled and
 train or serve the checkpoint separately.
 
+P-EAGLE's opt-in `drafter.training.peagle_sequence_partitions` defaults to `1`.
+Values above one reuse a single COD sample, retain causal context per partition,
+and checkpoint each partition's loss inside the wrapped model forward. This
+trades recomputation time for activation memory; it does not enable Ulysses or
+P-EAGLE serving. See [L20 measurements](TEST_RESULTS_L20.md).
+
 ## Runtime Compatibility
 
 The runtime requirements are backend-specific. `REQUIRED_VERL.txt` only pins

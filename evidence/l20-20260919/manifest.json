@@ -1,0 +1,83 @@
+{
+  "packages": {
+    "torch": "2.13.0+cu130",
+    "vllm": "0.29.0",
+    "verl": "0.9.0",
+    "transformers": "5.16.1",
+    "ray": "2.54.0",
+    "tensordict": "0.10.0"
+  },
+  "cuda_runtime": "13.0",
+  "model_files": {
+    "dflash": {
+      "config.json": {
+        "bytes": 1097,
+        "sha256": "2de97cdf48f429628074d229d024753f1ea02b575732983d6ed2bc882bbd63c8"
+      },
+      "model.safetensors": {
+        "bytes": 1074860568,
+        "sha256": "a21d0ffe5970c84e9a0710ccb12087d1a4bcbedf979e623476c92c9d005a9cd4"
+      }
+    },
+    "eagle": {
+      "License_AngelSlim_model_and_dataset.txt": {
+        "bytes": 42641,
+        "sha256": "56581f961cc0a0dbed65db6e5cc84246131e658c3b8a94c7eeabc263c06fdfe8"
+      },
+      "config.json": {
+        "bytes": 800,
+        "sha256": "1fc560b1fe78e79cd31255da282651f7802bb41a8dc42c7c79e7333f036c5195"
+      },
+      "model.safetensors": {
+        "bytes": 436899680,
+        "sha256": "58ac5bbfdd71047ebaa5d5535b895c2af37004eb820ca2dda55bd7666658853e"
+      }
+    },
+    "target": {
+      "config.json": {
+        "bytes": 726,
+        "sha256": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a"
+      },
+      "generation_config.json": {
+        "bytes": 239,
+        "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+      },
+      "merges.txt": {
+        "bytes": 1671853,
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+      },
+      "model-00001-of-00003.safetensors": {
+        "bytes": 3957900840,
+        "sha256": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223"
+      },
+      "model-00002-of-00003.safetensors": {
+        "bytes": 3987450520,
+        "sha256": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5"
+      },
+      "model-00003-of-00003.safetensors": {
+        "bytes": 99630640,
+        "sha256": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 32819,
+        "sha256": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2"
+      },
+      "tokenizer.json": {
+        "bytes": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      "tokenizer_config.json": {
+        "bytes": 9732,
+        "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+      },
+      "vocab.json": {
+        "bytes": 2776833,
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    }
+  },
+  "visible_gpus": [
+    "NVIDIA L20",
+    "NVIDIA L20"
+  ]
+}
