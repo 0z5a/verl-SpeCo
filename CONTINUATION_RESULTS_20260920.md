@@ -43,3 +43,18 @@ C1/C2/C4 本轮完整流程使用 tiny 全词表 P-EAGLE，不能替代真实 4B
 ## 已完成模型清理
 
 远端删除 66 个本任务专属模型 / optimizer 权重文件，释放 8,080,992,787 bytes（7.526 GiB）；本地删除 3 个 tiny draft 权重，释放 2,271,968 bytes。每个文件的路径、大小和 SHA-256 已记录在 `completed-model-cleanup.json` / `local-completed-model-cleanup.json`。保留配置、原始日志和 forward 捕获；未触碰共享缓存或其他任务模型。C5 后续拿到依赖后需重新下载 target。
+
+## 再次续做：Graph 与 public loader 候选依赖
+
+C1 新提交 `cd4c382`：重新生成原始 tiny fixture，完成单卡 BF16 CUDA Graph 的 baseline / P-EAGLE 两轮生成。两轮输出全部一致，并与此前 eager 输出逐 token 一致。实际观测 baseline 80 次 replay、speculative engine 272 次 replay；25 个逻辑权重张量完全一致。角色计数包括 target 和 PiecewiseBackend，未把后者逐个映射到 draft layer；没有声称 graph 下完成独立的 draft logits oracle。
+
+| 本轮对照 | 原路径 | 新路径 | 速度提升 | 正确性结果 |
+|---|---|---|---|---|
+| C1 Graph 两轮生成 | target-only，64 tokens | P-EAGLE，64 tokens | N/A：带观测 hook、共享 GPU，未受控计时 | 全部 token 一致，两个进程 exit 0 |
+| C5 prefixed public-loader | vLLM 0.29.0，重复前缀报错 | 本地一行幂等前缀补丁，连续加载两次 | N/A：基线功能失败，工作量不可比 | fc.weight 精确更新为 0.5 倍，后续生成通过 |
+
+C5 补丁只将 `elif "lm_head" not in name` 改为额外检查 `not name.startswith("model.")`。测试使用 tiny 全词表 P-EAGLE checkpoint 和 vLLM 的 Eagle3LlamaForCausalLM，运行完整参数名集合的 public load_weights，包含明确变更的 fc.weight。它是本地候选依赖的 GPU 验证，不是原作者配套提交，也不是原 PR10 的 IPC、真实 EAGLE3/DFlash RL、DFlash fused-KV 或在线 CUDA Graph 更新验证。记录见 `evidence/l20-20260920/public-loader-*`；补丁和复现脚本在 `experiment/l20/`。
+
+执行前后安装文件 SHA-256 均为 `5be7ee5513499b982d08803ac138926954377c858ffc2f2ebfe123e65556a61a`，确认测试脚本已恢复容器中的 vLLM 源码。当前 vLLM main `751f6807d9cb3de50c27a5f27188c4fb04fe0e2b` 的该 loader 仍无前缀幂等 guard；SpeCo main 仍为原固定 SHA，C3 未发现发布的对应实现。
+
+TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 custom all-reduce、V1 替代 V2，以及 spawn 替代 fork；未把卡住归因于 P-EAGLE，也未申报 TP2 通过。一次独立启动失败明确是显存预留门槛不足。原始日志与 Python worker stack 已保存在 C1 分支。机器多卡被其他工作占用，已请求可用于完整 4B 在线 E2E 的 GPU 编号或预留时段，未停止其他任务。
