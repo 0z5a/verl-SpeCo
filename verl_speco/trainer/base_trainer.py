@@ -2793,8 +2793,10 @@ class DrafterBaseTrainer:
             getattr(model_config, "pad_token_id", self.pad_token_id)
             or self.pad_token_id
         )
+        # Block drafters pair tokens and hidden states at the same position.
+        token_offset = 0 if self._is_block_drafter_backend() else 1
         for i in range(batch_size):
-            expected_hidden_rows = max(input_seq_length - 1, 0)
+            expected_hidden_rows = max(input_seq_length - token_offset, 0)
             raw_positions_item_for_alignment = None
             if (
                 cpu_hidden_raw_target_logprobs is not None
@@ -2907,20 +2909,20 @@ class DrafterBaseTrainer:
                     continue
 
                 hidden_position_start = max(int(hidden_positions_item[0].item()), 0)
-                # Phase 3: SGLang hidden_positions is the source of truth.
-                # Hidden row p supervises token p+1 and target row p+1, and
-                # the loss row is p+2, so keep only rows with that token window.
+                # Hidden positions anchor the window. Shifted drafters need
+                # one following token; block drafters retain same-position rows.
                 max_hidden_rows = min(
                     selected_hidden_row_end,
                     hidden_seq_length,
-                    max(input_seq_length - hidden_position_start - 1, 0),
+                    max(input_seq_length - hidden_position_start - token_offset, 0),
                 )
                 hidden_start = 0
                 hidden_feature_length = max_hidden_rows
                 hidden_end = hidden_feature_length
                 feature_start = hidden_position_start
                 feature_end = min(
-                    input_seq_length, feature_start + hidden_feature_length + 1
+                    input_seq_length,
+                    feature_start + hidden_feature_length + token_offset,
                 )
             else:
                 if hidden_position_start is None:
@@ -2932,11 +2934,13 @@ class DrafterBaseTrainer:
                 feature_start = min(max(hidden_position_start, 0), input_seq_length)
                 hidden_start = 0
                 hidden_feature_length = min(
-                    hidden_seq_length, max(input_seq_length - feature_start - 1, 0)
+                    hidden_seq_length,
+                    max(input_seq_length - feature_start - token_offset, 0),
                 )
                 hidden_end = hidden_feature_length
                 feature_end = min(
-                    input_seq_length, feature_start + hidden_feature_length + 1
+                    input_seq_length,
+                    feature_start + hidden_feature_length + token_offset,
                 )
 
             target_logprobs_position_start = None
@@ -2983,7 +2987,8 @@ class DrafterBaseTrainer:
                 else:
                     hidden_end = hidden_start + hidden_feature_length
                     feature_end = min(
-                        input_seq_length, feature_start + hidden_feature_length + 1
+                        input_seq_length,
+                        feature_start + hidden_feature_length + token_offset,
                     )
 
             input_feature_length = feature_end - feature_start
@@ -3129,11 +3134,11 @@ class DrafterBaseTrainer:
                                 ]
                             )
             item_position_ids = (
-                kept_hidden_positions + 1
+                kept_hidden_positions + token_offset
                 if kept_hidden_positions is not None
                 else torch.arange(
-                    feature_start + 1,
-                    feature_start + 1 + hidden_feature_length,
+                    feature_start + token_offset,
+                    feature_start + token_offset + hidden_feature_length,
                     dtype=torch.long,
                 )
             )
