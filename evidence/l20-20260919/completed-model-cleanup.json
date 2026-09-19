@@ -1,0 +1,335 @@
+{
+  "files": [
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A0/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-A1/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "11a39adc0a0c7facd316a44df4f148af8491b240ad22d3ba59833db1afad094a"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "68012a3a8ceb0c0f23f58889f5a6781759672855d622d4fca1eea6ead7112287"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "3e37a3b99a81e08d43a6ec1cb414b365d9e5e9939bc5ff55d8578482c6d0a9f9"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "dd04b8673ff17ab2639594b4d63dd76f52e40692424418f920e1ff569b547673"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "184ad5aef3350680b784dbbc7da0734d003b0306688be0b4078c308660144819"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P0/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "938087d3ed966fc9ffeee3c4d4d6df54c038cdaba0489574a37570a061c815a2"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "11a39adc0a0c7facd316a44df4f148af8491b240ad22d3ba59833db1afad094a"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "68012a3a8ceb0c0f23f58889f5a6781759672855d622d4fca1eea6ead7112287"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "3e37a3b99a81e08d43a6ec1cb414b365d9e5e9939bc5ff55d8578482c6d0a9f9"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "dd04b8673ff17ab2639594b4d63dd76f52e40692424418f920e1ff569b547673"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "184ad5aef3350680b784dbbc7da0734d003b0306688be0b4078c308660144819"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/partition-P1/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "938087d3ed966fc9ffeee3c4d4d6df54c038cdaba0489574a37570a061c815a2"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A0/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-A1/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P0/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "f13160ecb1fbd477c7a3c00c164831bb02e27ec1d34d384c678368727dd20c46"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "05aea6639b86bd78d64d8049b06a9aa8ea0120c2118896f68a182cce6288b3fa"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "1a23826cf6aef12bd9f2dc7376d25214712da8d68e9a1bd4a84b2b9ce15864d8"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "7d9c5e0e278a091e61f076bef648af397fc249777c7ec4a92f52b821f9522a03"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-P1/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "7e4f87309a3c706121507287926136eaa809db94a3d2dd19bde1c04695629425"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-oracle-checkpoint/model.safetensors",
+      "bytes": 127248,
+      "sha256": "3bfbe4c8fac1fa090ffd9a79c9d27a014acb23f7eb92b4d08861de77ffda40a4"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-resume/draft_step_8/model.safetensors",
+      "bytes": 514920,
+      "sha256": "898d7237988200acf4fd8242a4ab1317dcff709d61fcd47a0babfe4d64f63a51"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-resume/draft_step_8/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "96713ce9ee212558b6466ae3a558cf7b28c6c84182324dadd40c7bc4a5784d66"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-resume/draft_step_8/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "4bd12cdcf1703a5203df62ec3d31df18815c4d71c41e0b3840bc9ee5ca72ae6a"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "a1349f57897fb158eb9981f3f176ee4a05b6708ef21fc68edb74c54b3a95ea49"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_3/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "691e0ed93f594a6ab9d6c7a3b1bfa215e28d20d235d483eeace2040f51999d79"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_3/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "4bcc8267b51dc6e51e0ede90461aa915c1c226ad04e17527d12f14b47f89d266"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_6/model.safetensors",
+      "bytes": 514920,
+      "sha256": "18a44470ba2faaa8148fd7e2ba9fff547e006716eecb2d5f884c024d6b35001a"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_6/optimizer/__0_0.distcp",
+      "bytes": 588249,
+      "sha256": "350c3ac4f557c4af6126d0e0a7a154de320be8f7df7e7e6c5d5056546ace6b32"
+    },
+    {
+      "path": "/experiment/evidence/l20-20260919/veomni-standalone/draft_step_6/optimizer/__1_0.distcp",
+      "bytes": 638760,
+      "sha256": "db6365ad7b5961615eb9a1013d2f32431c0fb4c692cbe70798bc6b42c35ec0c7"
+    },
+    {
+      "path": "/experiment/models/target/model-00001-of-00003.safetensors",
+      "bytes": 3957900840,
+      "sha256": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223"
+    },
+    {
+      "path": "/experiment/models/target/model-00002-of-00003.safetensors",
+      "bytes": 3987450520,
+      "sha256": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5"
+    },
+    {
+      "path": "/experiment/models/target/model-00003-of-00003.safetensors",
+      "bytes": 99630640,
+      "sha256": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1"
+    },
+    {
+      "path": "/experiment/tiny-peagle/draft-eagle3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+    },
+    {
+      "path": "/experiment/tiny-peagle/draft-mapped/model.safetensors",
+      "bytes": 514920,
+      "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+    },
+    {
+      "path": "/experiment/tiny-peagle/draft-original/model.safetensors",
+      "bytes": 514920,
+      "sha256": "ffd40222d3c98616ed8edd988bdd9531b5aaba8097e048d1f8307c78458ecfbb"
+    },
+    {
+      "path": "/experiment/tiny-peagle/target/model.safetensors",
+      "bytes": 727208,
+      "sha256": "9585b07483bbd4572bb21839c21abcaebd375ac9c8bfaecfd542c6cea0e4dbed"
+    },
+    {
+      "path": "/experiment/tiny-peagle/trained-serving/model.safetensors",
+      "bytes": 514920,
+      "sha256": "b65aff30f7dd7da5154ec1e75210093a3f89395275af30e8dcc488290b97fc34"
+    }
+  ],
+  "bytes": 8080992787
+}

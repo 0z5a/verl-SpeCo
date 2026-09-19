@@ -39,3 +39,7 @@ C1/C2/C4 本轮完整流程使用 tiny 全词表 P-EAGLE，不能替代真实 4B
 本轮提交保留在本机，尚未 push 或创建 PR。C3/C5 及上述未覆盖的真实 RL 范围仍未完成，不将五项标为全部 E2E 通过。
 
 最终再次 fetch GitHub 时网络连接超时；rebase 对照的是本轮此前成功获取的 main SHA，未声称最后一次 fetch 成功。
+
+## 已完成模型清理
+
+远端删除 66 个本任务专属模型 / optimizer 权重文件，释放 8,080,992,787 bytes（7.526 GiB）；本地删除 3 个 tiny draft 权重，释放 2,271,968 bytes。每个文件的路径、大小和 SHA-256 已记录在 `completed-model-cleanup.json` / `local-completed-model-cleanup.json`。保留配置、原始日志和 forward 捕获；未触碰共享缓存或其他任务模型。C5 后续拿到依赖后需重新下载 target。
