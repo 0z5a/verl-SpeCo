@@ -1,0 +1,7 @@
+{
+  "python": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python",
+  "vllm": "0.29.0",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "transformers": "5.17.0"
+}

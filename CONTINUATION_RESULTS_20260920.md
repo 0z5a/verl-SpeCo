@@ -77,3 +77,18 @@ TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 cu
 | 原生 EAGLE3 / DFlash 完整 RL | 未完成 | 未完成 | N/A |
 
 本轮 5 个模型权重文件已清理，释放 2,786,856 bytes；报告及复现见 `C5_NATIVE_RESULTS.md`，原始日志和 logits 在 `evidence/l20-20260920/native/resume-0910/`。原生共享安装没有修改。DFlash 在现有 0.18 缺少实现，另建原生环境的选择已询问用户。
+
+## Latest native environment, C2 fix and C3 coordination
+
+- Native vLLM 0.29.0 is installed separately with PyTorch 2.13.0+cu130 and
+  Transformers 5.17.0. The official wheel hash and dependency check pass;
+  `NATIVE_VLLM_SETUP_20260920.md` records the environment.
+- C2 commit `ae8b5a2` removes vocabulary-head/KL work for context-only positions.
+  The 1,024-token Qwen3-4B optimizer-step comparison is +19.44% versus the old
+  partition, with peak allocation 16.28 → 14.23 GiB. Relative to old flat it is
+  still −22.12% speed and −32.40% memory. Full standalone timing is inconclusive;
+  all four six-step/save lifecycle runs pass. No full RL speedup is claimed.
+- The C3 coordination comment was posted as 0z5a:
+  https://github.com/verl-project/verl-SpeCo/issues/7#issuecomment-5746767473
+- C2 completed-task weights were cleaned (23 files, 8,051,385,896 bytes). The
+  small copied checkpoint remains only while C1 is actively validating it.

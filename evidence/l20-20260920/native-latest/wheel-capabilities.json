@@ -1,0 +1,5 @@
+{
+  "Eagle3LlamaForCausalLM": true,
+  "DFlashLagunaForCausalLM": true,
+  "DFlashQwen3ForCausalLM": true
+}
