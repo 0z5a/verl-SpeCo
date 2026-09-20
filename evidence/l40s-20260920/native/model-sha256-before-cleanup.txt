@@ -1,0 +1,5 @@
+a21d0ffe5970c84e9a0710ccb12087d1a4bcbedf979e623476c92c9d005a9cd4  /workspace/0z5a/c5-native-latest/models/dflash/model.safetensors
+58ac5bbfdd71047ebaa5d5535b895c2af37004eb820ca2dda55bd7666658853e  /workspace/0z5a/c5-native-latest/models/eagle/model.safetensors
+328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223  /workspace/0z5a/c5-native-latest/models/target/model-00001-of-00003.safetensors
+6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5  /workspace/0z5a/c5-native-latest/models/target/model-00002-of-00003.safetensors
+e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1  /workspace/0z5a/c5-native-latest/models/target/model-00003-of-00003.safetensors

@@ -1,0 +1,40 @@
+{
+  "dflash-pr10-l40s-v6": {
+    "first_step_s": 42.13351133908145,
+    "global_steps": [
+      1,
+      20
+    ],
+    "max_step_s": 42.13351133908145,
+    "mean_step_s": 23.385320827993564,
+    "min_step_s": 21.962217977037653,
+    "nonzero_grad_steps": 18,
+    "public_loader_count": 0,
+    "published_count": 20,
+    "retention_false_count": 0,
+    "retention_true_count": 0,
+    "steady_mean_step_s": 22.398573958988937,
+    "step_count": 20,
+    "total_step_s": 467.7064165598713,
+    "trained_count": 20
+  },
+  "eagle-pr10-l40s-v5": {
+    "first_step_s": 33.39408735209145,
+    "global_steps": [
+      1,
+      20
+    ],
+    "max_step_s": 33.39408735209145,
+    "mean_step_s": 15.346698815713172,
+    "min_step_s": 14.035654088947922,
+    "nonzero_grad_steps": 20,
+    "public_loader_count": 0,
+    "published_count": 20,
+    "retention_false_count": 0,
+    "retention_true_count": 0,
+    "steady_mean_step_s": 14.396836261166946,
+    "step_count": 20,
+    "total_step_s": 306.9339763142634,
+    "trained_count": 20
+  }
+}
