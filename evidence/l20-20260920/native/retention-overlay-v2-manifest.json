@@ -1,0 +1,6 @@
+{
+  "source": "/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native",
+  "original_runtime_sha256": "26da8226845e010375d890334ca98251282abe6e1498c67da7e1525685439977",
+  "audited_runtime_sha256": "e1bcfd67e3a00fb97d03b4d58314af1acaafe41f5393b2fa8fe6dd7fbcf3d716",
+  "change": "Log completed public load and hash private fc after target sync; no loader logic changes"
+}

@@ -1,0 +1,9 @@
+{
+  "unpad_values": true,
+  "pad_values": true,
+  "backward": true,
+  "sequence_lengths": [
+    3,
+    4
+  ]
+}

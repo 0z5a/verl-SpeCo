@@ -4,15 +4,15 @@ Author: 0z5a. Original PR production source:
 `b258ec517977a01df722909789da42746c39f28f`. Only experiment harness files are
 added in this checkout; the PR loader implementation is unchanged.
 
-**Not completed.** The L20 SSH endpoint stopped accepting connections during
-the run. EAGLE3 v8 was last observed importing Transformers; DFlash v1 was
-queued after its exit. Neither is recorded as passing.
+**Not completed.** SSH has recovered. EAGLE3 v13 is running; DFlash v6 is
+queued after it. The run audits public-loader completion and whether private
+`fc.weight` survives later target synchronization.
 
 | Check | Baseline | Candidate | Speed change | Result |
 |---|---|---|---|---|
-| Native EAGLE3 20-step online RL | Not completed | Not completed | N/A | v7 initialization OOM; v8 final status unavailable |
-| Native DFlash 20-step online RL | Not completed | Not completed | N/A | Queued; final status unavailable |
-| Actual PR10 public-loader audit | Uninstrumented | Audit overlay prepared | N/A | Not executed |
+| Native EAGLE3 20-step online RL | First rollout completed | Running | N/A | v11 exited before optimizer update: missing padding dependency; v13 adds upstream padding helpers |
+| Native DFlash 20-step online RL | First rollout completed | Queued | N/A | v4 exited at the same padding dependency; no completed 20-step result |
+| Actual PR10 public-loader audit | Original source | Logging and FC retention hash | N/A | Test overlay installed; no loader logic changes |
 
 The separate native environment uses vLLM 0.29.0, PyTorch 2.13.0+cu130,
 Transformers 5.10.4, Python 3.13.14 and a verl 0.8.0 import overlay. The vLLM
@@ -30,15 +30,43 @@ it is not a model-quality benchmark.
 
 Remote experiment root:
 `/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest`.
-Inspect `evidence/full-e2e/online-eagle-pr10-v8.{log,exit}` and
-`online-dflash-pr10-v1.{log,exit}` before restarting. The latter is launched by
-the same detached shell after EAGLE3 exits. Revalidate running processes and GPU
-availability. These jobs still need raw evidence retrieval, actual-loader-path
-verification, effective actor/drafter updates, later-rollout validation, and
-completed-model cleanup.
+Inspect `evidence/full-e2e/online-eagle-pr10-v13.{log,exit}` and
+`online-dflash-pr10-v6.{log,exit}` before restarting. The same detached launcher
+runs them sequentially with 30-minute bounds on GPUs 0/1. Final completion,
+nonzero optimizer updates, publication/retention counts and model cleanup remain
+pending.
 
-`prepare_loader_audit.py` creates a test-only source overlay with one log after
-the original public loader returns and records both source hashes. It has not
-been uploaded or executed. `SPECO_AUDIT_OVERLAY` and `SPECO_PYTHON_CACHE` are
-optional launcher paths; leave them unset unless the corresponding directories
-have been fully prepared. Ruff check/format and shell syntax checks pass locally.
+The full target state is 8,822,848,512 bytes including tied aliases. vLLM 0.29
+rejects an isolated `lm_head.weight` bucket when its tied embedding is absent
+from that invocation. The candidate uses a 9,216 MiB actor transfer bucket and a
+separate 128 MiB draft bucket. v8's failure and stopped process tree are retained;
+v9 was interrupted after checking the exact byte requirement, and v10 was moved
+because another workload reduced GPU 4's free memory.
+
+`prepare_loader_audit.py` copies the original package into an isolated test overlay,
+records runtime source hashes, logs successful public loads, and compares a
+private FC weight hash after later target synchronization. The FC hash is a
+sampled retention check, not a complete parameter or derived-cache oracle.
+
+Startup mitigation is isolated to this task's PYTHONPATH: a tmpfs copy of all
+2,434 Transformers files has identical hashes; the 235-package distribution map
+was captured once from the pinned environment and cached for new processes.
+`metadata_cache_sitecustomize.py` uses that map and normal Ray worker priority.
+Existing task workers and their threads were restored from nice 15 to normal 0;
+other jobs were not changed. Do not reuse the metadata cache after changing
+installed packages. These instrumentation/startup changes have no controlled
+speed comparison. Ruff check/format and shell syntax checks pass locally.
+
+EAGLE3 v11 and DFlash v4 both completed initial target synchronization and reached
+old-logprob computation after rollout, then exited 1 because verl imports
+`flash_attn.bert_padding` even with actor SDPA. The isolated padding overlay
+redirects that import to the unchanged upstream pure-PyTorch module at
+`Dao-AILab/flash-attention@edb5c76ee329b18ed95d1f7ea9aa522a1331ab7d`.
+Unpadding values, padding values and backward gradients match the direct masked
+reference. This does not install or claim validation of FlashAttention CUDA kernels.
+
+v12 was stopped during model initialization: Ray prepends the driver's working
+directory, which could shadow the audit package with the original checkout.
+v13 launches from the audit directory and logs each imported runtime path.
+Earlier runs establish only their observed execution/failure, not successful
+audited publication. Raw failure logs and the v12 stopped-process manifest are retained.

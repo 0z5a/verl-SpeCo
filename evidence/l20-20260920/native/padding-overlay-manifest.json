@@ -1,0 +1,7 @@
+{
+  "upstream": "Dao-AILab/flash-attention",
+  "revision": "edb5c76ee329b18ed95d1f7ea9aa522a1331ab7d",
+  "file": "flash_attn/bert_padding.py",
+  "sha256": "805d449ac749f87a50f3a3114385710f0f926ff45521275000b74d9e80721e5c",
+  "change": "Redirect only verl padding import; unchanged upstream PyTorch helpers, no attention kernel replacement"
+}

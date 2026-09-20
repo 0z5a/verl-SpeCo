@@ -1,0 +1,1296 @@
+/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+  from verl.utils.megatron.router_replay_patch import RouterReplay
+2026-09-20 12:04:34,520	INFO worker.py:2004 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/worker.py:2052: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(pid=3058669)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3058669)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3058669)[0m W0920 12:08:32.892000 3058669 torch/utils/cpp_extension.py:178] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+ray init kwargs: {'num_cpus': 16, 'runtime_env': {'env_vars': {'NCCL_DEBUG': 'WARN', 'VLLM_LOGGING_LEVEL': 'WARN', 'VLLM_ALLOW_RUNTIME_LORA_UPDATING': 'true', 'CUDA_DEVICE_MAX_CONNECTIONS': '1', 'VLLM_DISABLE_COMPILE_CACHE': '1', 'HCCL_HOST_SOCKET_PORT_RANGE': 'auto', 'HCCL_NPU_SOCKET_PORT_RANGE': 'auto', 'HSA_NO_SCRATCH_RECLAIM': '1'}, 'working_dir': None}}
+[36m(SpecoTaskRunner pid=3058669)[0m SpecoTaskRunner hostname: jk01, PID: 3058669
+[36m(SpecoTaskRunner pid=3058669)[0m {'actor_rollout_ref': {'actor': {'_target_': 'verl.workers.config.FSDPActorConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'calculate_entropy': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'calculate_sum_pi_squared': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'checkpoint': {'_target_': 'verl.trainer.config.CheckpointConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'async_save': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'load_contents': ['model',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                   'optimizer',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                   'extra'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'mbridge_config': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'save_contents': ['model',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                   'optimizer',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                   'extra'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'strict': True},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'clip_ratio': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'clip_ratio_c': 3.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'clip_ratio_high': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'clip_ratio_low': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'data_loader_seed': 42,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'entropy_checkpointing': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'entropy_coeff': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'entropy_from_logits_with_chunking': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'freeze_vision_tower': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'entropy_checkpointing': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'entropy_from_logits_with_chunking': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'forward_only': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'forward_prefetch': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'fsdp_size': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'full_determinism': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'model_dtype': 'bf16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'offload_policy': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'optimizer_offload': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'param_offload': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'qat': {'_target_': 'verl.workers.config.QATEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'activation_observer': 'static_minmax',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'group_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'ignore_patterns': ['lm_head',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                              'embed_tokens',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                              're:.*mlp.gate$'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'mode': 'w4a16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'quantization_config_path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'reshard_after_forward': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'seed': 42,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'strategy': 'fsdp',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'use_orig_params': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'use_torch_compile': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'grad_clip': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'kl_loss_coef': 0.001,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'loss_agg_mode': 'token-mean',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'loss_scale_factor': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'optim': {'_target_': 'verl.workers.config.FSDPOptimizerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'betas': [0.9, 0.999],
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'clip_grad': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'lr': 1e-06,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'lr_scheduler_type': 'constant',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'lr_warmup_steps': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'lr_warmup_steps_ratio': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'min_lr_ratio': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'num_cycles': 0.5,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'optimizer': 'AdamW',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'optimizer_impl': 'torch.optim',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'override_optimizer_config': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'total_training_steps': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'warmup_style': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'weight_decay': 0.01,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'zero_indexed_step': True},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'policy_loss': {'_target_': 'verl.workers.config.PolicyLossConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'clip_cov_lb': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'clip_cov_ratio': 0.0002,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'clip_cov_ub': 5.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'kl_cov_ratio': 0.0002,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'loss_mode': 'vanilla',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'ppo_kl_coef': 0.1},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ppo_epochs': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ppo_max_token_len_per_gpu': 16384,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ppo_micro_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ppo_micro_batch_size_per_gpu': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ppo_mini_batch_size': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'all_ranks': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'ranks': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'save_path': 'outputs/profile',
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'tool': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                               'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'analysis': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'discrete': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'level': 'level0'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                               'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                        'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                               'precision_debugger': {'_target_': 'verl.utils.profiler.config.PrecisionDebuggerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                      'config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                      'stages': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                      'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                      'strict': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                               'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                               'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'stack_depth': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'trace_alloc_max_entries': 100000}}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'qat': {'activation_observer': 'static_minmax',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'group_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'ignore_patterns': ['lm_head',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'embed_tokens',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              're:.*mlp.gate$'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'mode': 'w4a16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'quantization_config_path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'rollout_n': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'router_replay': {'_target_': 'verl.workers.config.RouterReplayConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                    'mode': 'disabled',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                    'record_file': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                    'replay_file': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'shuffle': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'strategy': 'fsdp2',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'tau_neg': 1.05,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'tau_pos': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_dynamic_bsz': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_fused_kernels': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_kl_loss': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_prefix_grouper': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_remove_padding': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_torch_compile': True},
+[36m(SpecoTaskRunner pid=3058669)[0m                        'hybrid_engine': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                        'model': {'_target_': 'verl.workers.config.HFModelConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'custom_chat_template': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'enable_activation_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'enable_gradient_checkpointing': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'exclude_modules': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'external_lib': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'fused_kernel_options': {'impl_backend': 'torch'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'hf_config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'lora': {'a2a_experimental': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'adapter_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'alpha': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'dropout': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'dropout_position': 'pre',
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'dtype': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'exclude_modules': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'freeze_language_model': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'freeze_vision_model': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'freeze_vision_projection': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'lora_A_init_method': 'xavier',
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'lora_B_init_method': 'zero',
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'merge': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'rank': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'target_modules': ['linear_qkv',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'linear_proj',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'linear_fc1',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'linear_fc2'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'type': 'lora'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'lora_adapter_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'lora_alpha': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'lora_rank': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'mtp': {'_target_': 'verl.workers.config.MtpConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'detach_encoder': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable_rollout': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable_train': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'method': 'mtp',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'mtp_loss_scaling_factor': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'num_speculative_tokens': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'speculative_algorithm': 'EAGLE',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'speculative_eagle_topk': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'speculative_num_draft_tokens': 4,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'speculative_num_steps': 3},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'override_config': {'attn_implementation': 'sdpa'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'path': '/home/kxqandccx/0z5a/speco-l20-20260919/models/target',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'target_modules': 'all-linear',
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'tiled_mlp': {'enabled': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'num_shards': 4},
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'tokenizer_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'trust_remote_code': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_fused_kernels': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_liger': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_remove_padding': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                  'use_shm': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                        'nccl_timeout': 600,
+[36m(SpecoTaskRunner pid=3058669)[0m                        'ref': {'_target_': 'verl.workers.config.FSDPActorConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'entropy_checkpointing': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'entropy_from_logits_with_chunking': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'entropy_checkpointing': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'entropy_from_logits_with_chunking': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'forward_only': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'forward_prefetch': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'fsdp_size': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'full_determinism': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'model_dtype': 'fp32',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'offload_policy': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'optimizer_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'param_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'qat': {'_target_': 'verl.workers.config.QATEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'activation_observer': 'static_minmax',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'group_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'ignore_patterns': ['lm_head',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                            'embed_tokens',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                            're:.*mlp.gate$'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'mode': 'w4a16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'quantization_config_path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'reshard_after_forward': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'seed': 42,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'strategy': 'fsdp',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'use_orig_params': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'use_torch_compile': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                'log_prob_max_token_len_per_gpu': 16384,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'log_prob_micro_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'log_prob_micro_batch_size_per_gpu': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'log_prob_use_dynamic_bsz': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'all_ranks': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'ranks': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'save_path': 'outputs/profile',
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'tool': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                     'analysis': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                     'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                     'discrete': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                     'level': 'level0'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'precision_debugger': {'_target_': 'verl.utils.profiler.config.PrecisionDebuggerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'stages': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'strict': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                       'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                              'stack_depth': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                              'trace_alloc_max_entries': 100000}}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                'rollout_n': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'router_replay': {'_target_': 'verl.workers.config.RouterReplayConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'mode': 'disabled',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'record_file': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'replay_file': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                'strategy': 'fsdp2',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'use_torch_compile': True},
+[36m(SpecoTaskRunner pid=3058669)[0m                        'rollout': {'_target_': 'verl.workers.config.RolloutConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'agent': {'_target_': 'verl.workers.config.AgentLoopConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'agent_loop_config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'custom_async_server': {'_target_': 'verl.workers.config.CustomAsyncServerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'name': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'default_agent_loop': 'single_turn_agent',
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'num_workers': 2},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'calculate_log_probs': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'checkpoint_engine': {'_target_': 'verl.workers.config.CheckpointEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'backend': 'naive',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'custom_backend_module': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'engine_kwargs': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                          'update_weights_bucket_megabytes': 128},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'cudagraph_capture_sizes': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'data_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'disable_log_stats': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'disaggregation': {'bootstrap_port': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'decode_replicas': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'decode_tensor_model_parallel_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'enabled': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'ib_device': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'prefill_replicas': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                       'transfer_backend': 'nixl'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'do_sample': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'drafter': {'checkpoint_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'enable': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'enable_drafter_training': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'model_path': '/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'rollout': {'cuda_graph_max_bs': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                            'spec_steps': 3,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                            'spec_topk': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                            'spec_verify_tokens': 3},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'speculative_algorithm': 'EAGLE3',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'training': {'batch_size_per_gpu': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'collect_hidden_states_from_old_logprob': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'collect_hidden_states_from_sgl': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'collect_interval_steps': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'collection_sample_rate': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'current_max_samples': 2048,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'data_buffer_max_size': 1024,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_block_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_front_position_count': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_front_position_weight': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_hard_sample_ratio': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_hidden_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_loss_decay_gamma': 7.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_loss_mode': 'full_vocab',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_mask_token_id': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_max_window': 512,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_num_anchors': 512,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_num_hidden_layers': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_num_target_layers': 5,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_sampled_ce_negatives': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'dflash_target_layer_ids': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'draft_update_flush_after': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'draft_update_flush_before': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'draft_update_pause_generation': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'draft_update_use_shm': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'draft_update_weights_bucket_megabytes': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_clip_value': 10000.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_max_tokens_per_sample': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_random_max_offset': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_random_seed_by_step': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_window_min_rows': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_window_mode': 'front',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'hidden_state_window_tokens_per_sample': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'logits_coverage_mask_min_ratio': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'logits_coverage_mask_require_top1': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'logits_sparse_min_intersection': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'logits_sparse_min_mass': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'logits_topk': 128,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'lr': 1e-06,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'lr_warmup_steps': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'max_collect_samples_per_step_per_replica': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'max_collect_tokens_per_step_per_replica': 2048,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'max_seq_len': 8192,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'min_lr_ratio': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'old_logprob_hidden_capture_impl': 'forward_hook',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'publish_async': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'publish_dtype': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'publish_interval_steps': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'publish_param_name_patterns': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'sample_last_n_steps': 20,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'save_full_drafter_checkpoint': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'skip_heavy_cleanup_after_drafter_training': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'step': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'target_lm_head_row_restricted_sync': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'train_batches_per_cycle': 4,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'training_interval_steps': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'ttt_length': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'use_data_buffer': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'use_logits': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'vocab_mapping_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'warmup_style': 'constant'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'vllm': {'draft_tensor_parallel_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                         'enforce_eager': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                         'max_model_len': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                         'speculative_config_overrides': {'model': '/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle'}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                'world_size': 16},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'enable_chunked_prefill': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'enable_prefix_caching': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'enable_rollout_routing_replay': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'enforce_eager': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'engine_kwargs': {'sglang': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                      'trtllm': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                      'vllm': {'kv_cache_memory_bytes': 134217728}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'expert_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'free_cache_engine': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'gpu_memory_utilization': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'ignore_eos': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'layered_summon': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'load_format': 'auto',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'log_prob_max_token_len_per_gpu': 16384,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'log_prob_micro_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'log_prob_micro_batch_size_per_gpu': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'log_prob_use_dynamic_bsz': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'logprobs_mode': 'processed_logprobs',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'max_model_len': 256,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'max_num_batched_tokens': 256,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'max_num_seqs': 4,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'mode': 'async',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'mtp': {'_target_': 'verl.workers.config.MtpConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'detach_encoder': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'enable_rollout': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'enable_train': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'method': 'mtp',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'mtp_loss_scaling_factor': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'num_speculative_tokens': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'speculative_algorithm': 'EAGLE',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'speculative_eagle_topk': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'speculative_num_draft_tokens': 4,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'speculative_num_steps': 3},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'multi_stage_wake_up': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'multi_turn': {'_target_': 'verl.workers.config.MultiTurnConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'format': 'hermes',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'function_tool_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'max_assistant_turns': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'max_parallel_calls': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'max_tool_response_length': 256,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'max_user_turns': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'num_repeat_rollouts': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'tokenization_sanity_check_mode': 'strict',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'tool_config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'tool_response_truncate_side': 'middle',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'use_inference_chat_template': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'n': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'n_gpus_per_node': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'name': 'vllm',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'nnodes': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'over_sample_rate': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'pipeline_model_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'all_ranks': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'ranks': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'save_path': 'outputs/profile',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'tool': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                 'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'analysis': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'discrete': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                         'level': 'level0'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'precision_debugger': {'_target_': 'verl.utils.profiler.config.PrecisionDebuggerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                        'config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                        'stages': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                        'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                        'strict': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                           'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                           'discrete': False}}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'prometheus': {'_target_': 'verl.workers.config.PrometheusConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'file': '/tmp/ray/session_latest/metrics/prometheus/prometheus.yml',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'port': 9090,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'served_model_name': '/home/kxqandccx/0z5a/speco-l20-20260919/models/target'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'prompt_length': 128,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'qat': {'_target_': 'verl.workers.config.QATEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'activation_observer': 'static_minmax',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'group_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'ignore_patterns': ['lm_head',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                'embed_tokens',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                're:.*mlp.gate$'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'mode': 'w4a16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                            'quantization_config_path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'quantization': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'quantization_config_file': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'response_length': 64,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'scheduling_policy': 'fcfs',
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'skip': {'_target_': 'verl.workers.config.SkipConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'action': 'cache',
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'dump_dir': '~/.verl/rollout_dump',
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'max_dump_step': 1},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'skip_tokenizer_init': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'temperature': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'tensor_model_parallel_size': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'top_k': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'top_p': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'trace': {'_target_': 'verl.workers.config.TraceConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'backend': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'experiment_name': 'eagle3-compat',
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'max_samples_per_step_per_worker': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'project_name': 'speco-l20',
+[36m(SpecoTaskRunner pid=3058669)[0m                                              'token2text': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                    'val_kwargs': {'_target_': 'verl.workers.config.SamplingConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'do_sample': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'n': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'temperature': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'top_k': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'top_p': 1.0}}},
+[36m(SpecoTaskRunner pid=3058669)[0m  'algorithm': {'_target_': 'verl.trainer.config.AlgoConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                'adv_estimator': 'grpo',
+[36m(SpecoTaskRunner pid=3058669)[0m                'gamma': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                'kl_ctrl': {'_target_': 'verl.trainer.config.KLControlConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                            'horizon': 10000,
+[36m(SpecoTaskRunner pid=3058669)[0m                            'kl_coef': 0.001,
+[36m(SpecoTaskRunner pid=3058669)[0m                            'target_kl': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                            'type': 'fixed'},
+[36m(SpecoTaskRunner pid=3058669)[0m                'kl_penalty': 'kl',
+[36m(SpecoTaskRunner pid=3058669)[0m                'lam': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                'norm_adv_by_std_in_grpo': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                'pf_ppo': {'reweight_method': 'pow', 'weight_pow': 2.0},
+[36m(SpecoTaskRunner pid=3058669)[0m                'rollout_correction': {'bypass_mode': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'loss_type': 'ppo_clip',
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'rollout_is': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'rollout_is_batch_normalize': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'rollout_is_threshold': 2.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'rollout_rs': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                       'rollout_rs_threshold': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                'use_kl_in_reward': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                'use_pf_ppo': False},
+[36m(SpecoTaskRunner pid=3058669)[0m  'critic': {'_target_': 'verl.workers.config.FSDPCriticConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m             'checkpoint': {'_target_': 'verl.trainer.config.CheckpointConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                            'async_save': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                            'load_contents': ['model', 'optimizer', 'extra'],
+[36m(SpecoTaskRunner pid=3058669)[0m                            'mbridge_config': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                            'save_contents': ['model', 'optimizer', 'extra']},
+[36m(SpecoTaskRunner pid=3058669)[0m             'cliprange_value': 0.5,
+[36m(SpecoTaskRunner pid=3058669)[0m             'data_loader_seed': 42,
+[36m(SpecoTaskRunner pid=3058669)[0m             'enable': None,
+[36m(SpecoTaskRunner pid=3058669)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(SpecoTaskRunner pid=3058669)[0m             'forward_micro_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m             'forward_micro_batch_size_per_gpu': None,
+[36m(SpecoTaskRunner pid=3058669)[0m             'fsdp': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'entropy_checkpointing': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'entropy_from_logits_with_chunking': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'forward_only': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'forward_prefetch': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'fsdp_size': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'full_determinism': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'model_dtype': 'fp32',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'offload_policy': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'optimizer_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'param_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'qat': {'_target_': 'verl.workers.config.QATEngineConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'activation_observer': 'static_minmax',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'group_size': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'ignore_patterns': ['lm_head',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'embed_tokens',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  're:.*mlp.gate$'],
+[36m(SpecoTaskRunner pid=3058669)[0m                              'mode': 'w4a16',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'quantization_config_path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                      'reshard_after_forward': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'seed': 42,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'strategy': 'fsdp',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'use_orig_params': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'use_torch_compile': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'wrap_policy': {'min_num_params': 0}},
+[36m(SpecoTaskRunner pid=3058669)[0m             'grad_clip': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m             'loss_agg_mode': 'token-mean',
+[36m(SpecoTaskRunner pid=3058669)[0m             'model': {'_target_': 'verl.workers.config.HFModelConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'custom_chat_template': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'enable_activation_offload': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'enable_gradient_checkpointing': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'exclude_modules': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'external_lib': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'fused_kernel_options': {'impl_backend': 'torch'},
+[36m(SpecoTaskRunner pid=3058669)[0m                       'hf_config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lora': {'a2a_experimental': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'adapter_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'alpha': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'dropout': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'dropout_position': 'pre',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'dtype': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'exclude_modules': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                'freeze_language_model': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'freeze_vision_model': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'freeze_vision_projection': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'lora_A_init_method': 'xavier',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'lora_B_init_method': 'zero',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'merge': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'rank': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'target_modules': ['linear_qkv',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'linear_proj',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'linear_fc1',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'linear_fc2'],
+[36m(SpecoTaskRunner pid=3058669)[0m                                'type': 'lora'},
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lora_adapter_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lora_alpha': 16,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lora_rank': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'mtp': {'_target_': 'verl.workers.config.MtpConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                               'detach_encoder': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'enable_rollout': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'enable_train': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'method': 'mtp',
+[36m(SpecoTaskRunner pid=3058669)[0m                               'mtp_loss_scaling_factor': 0.1,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'num_speculative_tokens': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'speculative_algorithm': 'EAGLE',
+[36m(SpecoTaskRunner pid=3058669)[0m                               'speculative_eagle_topk': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'speculative_num_draft_tokens': 4,
+[36m(SpecoTaskRunner pid=3058669)[0m                               'speculative_num_steps': 3},
+[36m(SpecoTaskRunner pid=3058669)[0m                       'override_config': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                       'path': '~/models/deepseek-llm-7b-chat',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'target_modules': 'all-linear',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'tiled_mlp': {'enabled': False, 'num_shards': 4},
+[36m(SpecoTaskRunner pid=3058669)[0m                       'tokenizer_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'trust_remote_code': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'use_fused_kernels': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'use_liger': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'use_remove_padding': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'use_shm': False},
+[36m(SpecoTaskRunner pid=3058669)[0m             'optim': {'_target_': 'verl.workers.config.FSDPOptimizerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'betas': [0.9, 0.999],
+[36m(SpecoTaskRunner pid=3058669)[0m                       'clip_grad': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lr': 1e-05,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lr_scheduler_type': 'constant',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lr_warmup_steps': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'lr_warmup_steps_ratio': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'min_lr_ratio': 0.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'num_cycles': 0.5,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'optimizer': 'AdamW',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'optimizer_impl': 'torch.optim',
+[36m(SpecoTaskRunner pid=3058669)[0m                       'override_optimizer_config': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'total_training_steps': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'warmup_style': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'weight_decay': 0.01,
+[36m(SpecoTaskRunner pid=3058669)[0m                       'zero_indexed_step': True},
+[36m(SpecoTaskRunner pid=3058669)[0m             'ppo_epochs': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(SpecoTaskRunner pid=3058669)[0m             'ppo_micro_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m             'ppo_micro_batch_size_per_gpu': None,
+[36m(SpecoTaskRunner pid=3058669)[0m             'ppo_mini_batch_size': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m             'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                          'all_ranks': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                          'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                          'ranks': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                          'save_path': 'outputs/profile',
+[36m(SpecoTaskRunner pid=3058669)[0m                          'tool': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                          'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'analysis': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'discrete': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                  'level': 'level0'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'precision_debugger': {'_target_': 'verl.utils.profiler.config.PrecisionDebuggerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'stages': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                 'strict': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                    'contents': [],
+[36m(SpecoTaskRunner pid=3058669)[0m                                                    'discrete': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                           'stack_depth': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                           'trace_alloc_max_entries': 100000}}},
+[36m(SpecoTaskRunner pid=3058669)[0m             'rollout_n': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m             'shuffle': False,
+[36m(SpecoTaskRunner pid=3058669)[0m             'strategy': 'fsdp',
+[36m(SpecoTaskRunner pid=3058669)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m             'use_dynamic_bsz': False},
+[36m(SpecoTaskRunner pid=3058669)[0m  'data': {'apply_chat_template_kwargs': {'enable_thinking': False},
+[36m(SpecoTaskRunner pid=3058669)[0m           'audio_key': 'audios',
+[36m(SpecoTaskRunner pid=3058669)[0m           'custom_cls': {'name': None, 'path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m           'dataloader_num_workers': 8,
+[36m(SpecoTaskRunner pid=3058669)[0m           'filter_overlong_prompts': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'filter_overlong_prompts_workers': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m           'function_tool_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m           'image_key': 'images',
+[36m(SpecoTaskRunner pid=3058669)[0m           'image_patch_size': 14,
+[36m(SpecoTaskRunner pid=3058669)[0m           'max_prompt_length': 128,
+[36m(SpecoTaskRunner pid=3058669)[0m           'max_response_length': 64,
+[36m(SpecoTaskRunner pid=3058669)[0m           'mm_processor_kwargs': {},
+[36m(SpecoTaskRunner pid=3058669)[0m           'prompt_key': 'prompt',
+[36m(SpecoTaskRunner pid=3058669)[0m           'return_full_prompt': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'return_multi_modal_inputs': True,
+[36m(SpecoTaskRunner pid=3058669)[0m           'return_raw_chat': True,
+[36m(SpecoTaskRunner pid=3058669)[0m           'return_raw_input_ids': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'reward_fn_key': 'data_source',
+[36m(SpecoTaskRunner pid=3058669)[0m           'seed': None,
+[36m(SpecoTaskRunner pid=3058669)[0m           'shuffle': True,
+[36m(SpecoTaskRunner pid=3058669)[0m           'tokenizer': None,
+[36m(SpecoTaskRunner pid=3058669)[0m           'tool_config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m           'train_batch_size': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m           'train_files': '/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/train.parquet',
+[36m(SpecoTaskRunner pid=3058669)[0m           'train_max_samples': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m           'truncation': 'error',
+[36m(SpecoTaskRunner pid=3058669)[0m           'trust_remote_code': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'use_shm': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'val_batch_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m           'val_files': '/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/val.parquet',
+[36m(SpecoTaskRunner pid=3058669)[0m           'val_max_samples': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m           'validation_shuffle': False,
+[36m(SpecoTaskRunner pid=3058669)[0m           'video_key': 'videos'},
+[36m(SpecoTaskRunner pid=3058669)[0m  'distillation': {'_target_': 'verl.workers.config.DistillationConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                   'distillation_loss': {'_target_': 'verl.workers.config.DistillationLossConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'clip_ratio': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'clip_ratio_high': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'clip_ratio_low': 0.2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'distillation_loss_coef': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'log_prob_min_clamp': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'loss_max_clamp': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'loss_mode': 'k3',
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'policy_loss_mode': 'vanilla',
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'topk': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'use_policy_gradient': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                         'use_task_rewards': True},
+[36m(SpecoTaskRunner pid=3058669)[0m                   'enabled': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                   'n_gpus_per_node': 8,
+[36m(SpecoTaskRunner pid=3058669)[0m                   'nnodes': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                   'teacher_key': 'data_source',
+[36m(SpecoTaskRunner pid=3058669)[0m                   'teacher_models': {'teacher_model': {'_target_': 'verl.workers.config.DistillationTeacherModelConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'inference': {'_target_': 'verl.workers.config.RolloutConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'cudagraph_capture_sizes': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'data_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'disable_log_stats': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'enable_chunked_prefill': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'enable_prefix_caching': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'enforce_eager': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'engine_kwargs': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'expert_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'free_cache_engine': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'gpu_memory_utilization': 0.5,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'limit_images': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'load_format': 'auto',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'max_model_len': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'max_num_batched_tokens': 8192,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'max_num_seqs': 1024,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'name': 'vllm',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'prompt_length': 128,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'response_length': 64,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'skip_tokenizer_init': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'temperature': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                      'tensor_model_parallel_size': 2},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'key': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'model_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                        'num_replicas': 0}}},
+[36m(SpecoTaskRunner pid=3058669)[0m  'global_profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'global_tool_config': {'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                      'controller_nsight_options': {'cuda-graph-trace': 'graph',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'cuda-memory-usage': 'true',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                    'trace': 'cuda,nvtx,cublas,ucx'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                      'discrete': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                      'worker_nsight_options': {'capture-range': 'cudaProfilerApi',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'capture-range-end': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'cuda-graph-trace': 'graph',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'cuda-memory-usage': 'true',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'kill': 'none',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                                'trace': 'cuda,nvtx,cublas,ucx'}},
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'precision_debugger': {'_target_': 'verl.utils.profiler.config.PrecisionDebuggerToolConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                    'config_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                    'stages': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                    'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                                    'strict': False},
+[36m(SpecoTaskRunner pid=3058669)[0m                                             'torch_memory': {'context': 'all',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'kw_args': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'stack_depth': 32,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'stacks': 'all',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                              'trace_alloc_max_entries': 100000}},
+[36m(SpecoTaskRunner pid=3058669)[0m                      'profile_continuous_steps': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'save_path': 'outputs/profile',
+[36m(SpecoTaskRunner pid=3058669)[0m                      'steps': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                      'tool': None},
+[36m(SpecoTaskRunner pid=3058669)[0m  'model_engine': 'dp',
+[36m(SpecoTaskRunner pid=3058669)[0m  'ray_kwargs': {'ray_init': {'num_cpus': 16}, 'timeline_json_file': None},
+[36m(SpecoTaskRunner pid=3058669)[0m  'reward': {'_target_': 'verl.workers.config.RewardConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m             'custom_reward_function': {'name': 'compute_score',
+[36m(SpecoTaskRunner pid=3058669)[0m                                        'path': '/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/experiment/l20/integration_reward.py'},
+[36m(SpecoTaskRunner pid=3058669)[0m             'num_workers': 8,
+[36m(SpecoTaskRunner pid=3058669)[0m             'reward_manager': {'_target_': 'verl.workers.config.reward.RewardManagerConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'module': {'_target_': 'verl.trainer.config.config.ModuleConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'name': 'custom_reward_manager',
+[36m(SpecoTaskRunner pid=3058669)[0m                                           'path': None},
+[36m(SpecoTaskRunner pid=3058669)[0m                                'name': 'naive',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'source': 'register'},
+[36m(SpecoTaskRunner pid=3058669)[0m             'reward_model': {'_target_': 'verl.workers.config.RewardModelConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'enable_resource_pool': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'model_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'n_gpus_per_node': 8,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'nnodes': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m                              'rollout': {'_target_': 'verl.workers.config.RolloutConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'cudagraph_capture_sizes': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'data_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'disable_log_stats': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'disaggregation': {'bootstrap_port': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'decode_replicas': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'decode_tensor_model_parallel_size': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'enabled': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'ib_device': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'prefill_replicas': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                             'transfer_backend': 'nixl'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'do_sample': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'dtype': 'bfloat16',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable_chunked_prefill': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enable_prefix_caching': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'enforce_eager': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'engine_kwargs': {},
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'expert_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'free_cache_engine': True,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'gpu_memory_utilization': 0.5,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'ignore_eos': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'layered_summon': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'limit_images': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'load_format': 'auto',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'max_model_len': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'max_num_batched_tokens': 8192,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'max_num_seqs': 1024,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'mtp': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'multi_stage_wake_up': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'n': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'name': '???',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'pipeline_model_parallel_size': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'prompt_length': 2048,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'quantization': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'quantization_config_file': None,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'response_length': 2048,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'scheduling_policy': 'fcfs',
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'skip_tokenizer_init': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'temperature': 1.0,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'tensor_model_parallel_size': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'top_k': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m                                          'top_p': 1}},
+[36m(SpecoTaskRunner pid=3058669)[0m             'sandbox_fusion': {'_target_': 'verl.workers.config.SandboxFusionConfig',
+[36m(SpecoTaskRunner pid=3058669)[0m                                'max_concurrent': 64,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'memory_limit_mb': 1024,
+[36m(SpecoTaskRunner pid=3058669)[0m                                'url': None}},
+[36m(SpecoTaskRunner pid=3058669)[0m  'speco': {'compatibility': {'policy': 'warn',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'require_verl_base_commit': '7aed6b230776f963fa09509c10d9c3a767d1102c',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'require_verl_base_tag': 'v0.8.0',
+[36m(SpecoTaskRunner pid=3058669)[0m                              'strict_env': 'VERL_SPECO_STRICT_VERL'},
+[36m(SpecoTaskRunner pid=3058669)[0m            'enable': True,
+[36m(SpecoTaskRunner pid=3058669)[0m            'trainer': {'ray_trainer': 'verl_speco.trainer.speco_ray_trainer.SpecoRayPPOTrainer',
+[36m(SpecoTaskRunner pid=3058669)[0m                        'task_runner': 'verl_speco.integration.task_runner.SpecoTaskRunner'},
+[36m(SpecoTaskRunner pid=3058669)[0m            'verl_base': {'commit': '7aed6b230776f963fa09509c10d9c3a767d1102c',
+[36m(SpecoTaskRunner pid=3058669)[0m                          'source_modifications_allowed': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                          'version': '0.8.0'}},
+[36m(SpecoTaskRunner pid=3058669)[0m  'trainer': {'balance_batch': True,
+[36m(SpecoTaskRunner pid=3058669)[0m              'critic_warmup': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m              'default_hdfs_dir': None,
+[36m(SpecoTaskRunner pid=3058669)[0m              'default_local_dir': '/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/checkpoints-eagle-pr10',
+[36m(SpecoTaskRunner pid=3058669)[0m              'del_local_ckpt_after_load': False,[36m(SpecoTaskRunner pid=3058669)[0m /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/integration/task_runner.py:96: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(SpecoTaskRunner pid=3058669)[0m   use_critic=need_critic(config),
+[36m(SpecoTaskRunner pid=3058669)[0m Generating train split: 0 examples [00:00, ? examples/s]
+[36m(SpecoTaskRunner pid=3058669)[0m Generating train split: 16 examples [00:00, 122.73 examples/s]Generating train split: 16 examples [00:00, 55.38 examples/s] 
+[36m(SpecoTaskRunner pid=3058669)[0m Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4 examples [00:00, 625.85 examples/s]
+[36m(SpecoTaskRunner pid=3058669)[0m /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/trainer/speco_ray_trainer.py:302: FutureWarning: Warning: Class 'verl.trainer.ppo.ray_trainer.RayPPOTrainer' is deprecated. Please use 'main_ppo.py is deprecated, and wil be replaced by main_ppo_sync.py in v0.8.0, please use main_ppo_sync.py instead.' instead.
+[36m(SpecoTaskRunner pid=3058669)[0m   super().__init__(*args, **kwargs)
+[36m(SpecoTaskRunner pid=3058669)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/trainer/ppo/ray_trainer.py:348: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(SpecoTaskRunner pid=3058669)[0m   self.use_critic = need_critic(self.config)
+[36m(SpecoTaskRunner pid=3058669)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/torchdata/stateful_dataloader/stateful_dataloader.py:379: UserWarning: 'set_vital' is deprecated, please do not call
+[36m(SpecoTaskRunner pid=3058669)[0m   torch.set_vital("Dataloader", "enabled", "True")  # type: ignore[attr-defined]
+[36m(WorkerDict pid=3084615)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(WorkerDict pid=3084615)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(WorkerDict pid=3084615)[0m WARNING:2026-09-20 12:08:59,413:SPECO old-logprob hidden ObjectRef batch postprocess patch active
+[36m(WorkerDict pid=3084615)[0m WARNING:2026-09-20 12:08:59,413:SPECO old-logprob hidden ObjectRef postprocess patch active
+[36m(WorkerDict pid=3084615)[0m WARNING:2026-09-20 12:08:59,413:SPECO old-logprob hidden runtime patch active for upstream FSDP LM-head engine
+[36m(WorkerDict pid=3084618)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(WorkerDict pid=3084618)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(WorkerDict pid=3084618)[0m WARNING:2026-09-20 12:08:59,355:SPECO old-logprob hidden ObjectRef batch postprocess patch active
+[36m(WorkerDict pid=3084618)[0m WARNING:2026-09-20 12:08:59,356:SPECO old-logprob hidden ObjectRef postprocess patch active
+[36m(WorkerDict pid=3084618)[0m WARNING:2026-09-20 12:08:59,356:SPECO old-logprob hidden runtime patch active for upstream FSDP LM-head engine
+[36m(WorkerDict pid=3084618)[0m [W920 12:09:10.268442067 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[36m(WorkerDict pid=3084615)[0m [W920 12:09:10.325134517 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[36m(WorkerDict pid=3084615)[0m [W920 12:09:20.313091663 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[36m(WorkerDict pid=3084615)[0m Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:   1%|          | 3/398 [00:00<00:36, 10.75it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:   6%|▌         | 22/398 [00:01<00:19, 19.65it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:   8%|▊         | 32/398 [00:01<00:14, 24.76it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:   9%|▉         | 36/398 [00:01<00:11, 30.81it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  10%|█         | 40/398 [00:01<00:18, 19.50it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:   9%|▉         | 35/398 [00:02<00:39,  9.09it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:   9%|▉         | 37/398 [00:03<00:52,  6.81it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  11%|█         | 42/398 [00:02<00:29, 12.03it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  11%|█▏        | 45/398 [00:03<00:34, 10.36it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  15%|█▌        | 60/398 [00:03<00:19, 17.17it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  12%|█▏        | 48/398 [00:04<00:37,  9.38it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  13%|█▎        | 50/398 [00:04<00:43,  7.97it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  16%|█▌        | 62/398 [00:03<00:24, 13.89it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  20%|█▉        | 79/398 [00:04<00:10, 29.61it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  18%|█▊        | 71/398 [00:03<00:16, 19.25it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  21%|██        | 82/398 [00:04<00:19, 16.06it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  22%|██▏       | 89/398 [00:06<00:16, 18.18it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  21%|██▏       | 85/398 [00:05<00:22, 14.12it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  25%|██▍       | 99/398 [00:06<00:22, 13.47it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  24%|██▍       | 96/398 [00:07<00:25, 11.84it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  26%|██▌       | 102/398 [00:06<00:20, 14.37it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  26%|██▋       | 105/398 [00:06<00:20, 14.39it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  25%|██▌       | 101/398 [00:08<00:28, 10.27it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  28%|██▊       | 111/398 [00:07<00:22, 12.57it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  29%|██▉       | 115/398 [00:08<00:17, 16.60it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  29%|██▉       | 115/398 [00:07<00:19, 14.50it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  31%|███       | 122/398 [00:08<00:14, 19.61it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  30%|██▉       | 119/398 [00:07<00:17, 15.97it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  32%|███▏      | 128/398 [00:08<00:15, 17.39it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  33%|███▎      | 133/398 [00:09<00:13, 19.84it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  33%|███▎      | 132/398 [00:08<00:15, 17.25it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  35%|███▍      | 138/398 [00:09<00:13, 18.57it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  36%|███▌      | 142/398 [00:09<00:15, 16.98it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  36%|███▌      | 142/398 [00:08<00:13, 18.72it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  36%|███▋      | 145/398 [00:10<00:18, 13.41it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  37%|███▋      | 148/398 [00:09<00:14, 17.24it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  38%|███▊      | 151/398 [00:10<00:20, 12.20it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  38%|███▊      | 150/398 [00:09<00:19, 12.59it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  39%|███▉      | 155/398 [00:10<00:17, 14.09it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  38%|███▊      | 152/398 [00:09<00:20, 12.26it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  40%|███▉      | 158/398 [00:11<00:17, 13.73it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  40%|████      | 160/398 [00:11<00:22, 10.82it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  41%|████      | 163/398 [00:10<00:19, 12.11it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  42%|████▏     | 169/398 [00:11<00:12, 18.94it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  43%|████▎     | 172/398 [00:11<00:14, 15.98it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  45%|████▌     | 181/398 [00:10<00:09, 23.50it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  47%|████▋     | 188/398 [00:11<00:07, 26.56it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  47%|████▋     | 187/398 [00:13<00:15, 13.55it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  48%|████▊     | 190/398 [00:13<00:15, 13.85it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  48%|████▊     | 193/398 [00:12<00:15, 12.90it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  49%|████▉     | 197/398 [00:12<00:18, 10.59it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  49%|████▉     | 195/398 [00:14<00:17, 11.46it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  49%|████▉     | 197/398 [00:15<00:28,  6.96it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  50%|█████     | 200/398 [00:14<00:30,  6.55it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  51%|█████     | 203/398 [00:15<00:24,  7.89it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  53%|█████▎    | 210/398 [00:14<00:18, 10.19it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  55%|█████▍    | 217/398 [00:16<00:15, 11.81it/s]Loading weights:  55%|█████▌    | 219/398 [00:16<00:15, 11.57it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  55%|█████▌    | 219/398 [00:14<00:13, 12.96it/s]Loading weights:  56%|█████▌    | 222/398 [00:15<00:16, 10.90it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  56%|█████▌    | 221/398 [00:16<00:14, 12.02it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  56%|█████▌    | 223/398 [00:16<00:15, 11.01it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  62%|██████▏   | 246/398 [00:15<00:06, 22.45it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  57%|█████▋    | 225/398 [00:17<00:18,  9.42it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  63%|██████▎   | 250/398 [00:16<00:07, 20.34it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  65%|██████▌   | 260/398 [00:16<00:05, 26.74it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  57%|█████▋    | 227/398 [00:17<00:17,  9.54it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  67%|██████▋   | 267/398 [00:17<00:02, 56.21it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  67%|██████▋   | 265/398 [00:16<00:06, 22.12it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  70%|███████   | 279/398 [00:17<00:02, 50.16it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  68%|██████▊   | 269/398 [00:16<00:05, 23.20it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  69%|██████▊   | 273/398 [00:17<00:06, 18.29it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  73%|███████▎  | 289/398 [00:18<00:03, 33.39it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  69%|██████▉   | 276/398 [00:17<00:08, 15.25it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  70%|███████   | 279/398 [00:17<00:08, 14.78it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  75%|███████▍  | 297/398 [00:19<00:03, 26.61it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  72%|███████▏  | 285/398 [00:18<00:07, 15.37it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  74%|███████▎  | 293/398 [00:18<00:05, 18.41it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  76%|███████▌  | 303/398 [00:19<00:04, 19.47it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  77%|███████▋  | 305/398 [00:18<00:03, 28.96it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  78%|███████▊  | 310/398 [00:19<00:03, 23.11it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  79%|███████▉  | 315/398 [00:19<00:03, 25.52it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  78%|███████▊  | 311/398 [00:19<00:03, 23.82it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  80%|████████  | 320/398 [00:20<00:03, 24.03it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  80%|████████  | 320/398 [00:19<00:02, 32.05it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  82%|████████▏ | 326/398 [00:20<00:02, 24.11it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  82%|████████▏ | 325/398 [00:19<00:03, 23.61it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  83%|████████▎ | 330/398 [00:20<00:03, 17.77it/s]Loading weights:  85%|████████▌ | 339/398 [00:21<00:02, 25.77it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  83%|████████▎ | 329/398 [00:19<00:03, 20.77it/s]Loading weights:  85%|████████▌ | 340/398 [00:19<00:01, 30.93it/s]Loading weights:  87%|████████▋ | 345/398 [00:20<00:02, 21.07it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  86%|████████▋ | 344/398 [00:21<00:03, 16.74it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  94%|█████████▍| 374/398 [00:20<00:00, 52.37it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  89%|████████▉ | 356/398 [00:21<00:01, 23.68it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  97%|█████████▋| 385/398 [00:20<00:00, 49.72it/s]
+[36m(WorkerDict pid=3084615)[0m Loading weights:  90%|█████████ | 360/398 [00:22<00:01, 19.70it/s]Loading weights: 100%|██████████| 398/398 [00:22<00:00, 17.86it/s]
+[36m(WorkerDict pid=3084618)[0m Loading weights:  99%|█████████▉| 394/398 [00:21<00:00, 41.13it/s]Loading weights: 100%|██████████| 398/398 [00:21<00:00, 18.80it/s]
+
+[36m(SpecoTaskRunner pid=3058669)[0m              'device': 'cuda',
+[36m(SpecoTaskRunner pid=3058669)[0m              'esi_redundant_time': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m              'experiment_name': 'eagle3-compat',
+[36m(SpecoTaskRunner pid=3058669)[0m              'log_val_generations': 0,
+[36m(SpecoTaskRunner pid=3058669)[0m              'logger': ['console'],
+[36m(SpecoTaskRunner pid=3058669)[0m              'max_actor_ckpt_to_keep': None,
+[36m(SpecoTaskRunner pid=3058669)[0m              'max_critic_ckpt_to_keep': None,
+[36m(SpecoTaskRunner pid=3058669)[0m              'n_gpus_per_node': 2,
+[36m(SpecoTaskRunner pid=3058669)[0m              'nnodes': 1,
+[36m(SpecoTaskRunner pid=3058669)[0m              'project_name': 'speco-l20',
+[36m(SpecoTaskRunner pid=3058669)[0m              'ray_wait_register_center_timeout': 300,
+[36m(SpecoTaskRunner pid=3058669)[0m              'resume_from_path': None,
+[36m(SpecoTaskRunner pid=3058669)[0m              'resume_mode': 'auto',
+[36m(SpecoTaskRunner pid=3058669)[0m              'rollout_data_dir': None,
+[36m(SpecoTaskRunner pid=3058669)[0m              'save_freq': 10,
+[36m(SpecoTaskRunner pid=3058669)[0m              'test_freq': -1,
+[36m(SpecoTaskRunner pid=3058669)[0m              'total_epochs': 3,
+[36m(SpecoTaskRunner pid=3058669)[0m              'total_training_steps': 20,
+[36m(SpecoTaskRunner pid=3058669)[0m              'val_before_train': False,
+[36m(SpecoTaskRunner pid=3058669)[0m              'val_only': False,
+[36m(SpecoTaskRunner pid=3058669)[0m              'validation_data_dir': None},
+[36m(SpecoTaskRunner pid=3058669)[0m  'transfer_queue': {'backend': {'MooncakeStore': {'auto_init': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'device_name': '',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'global_segment_size': 4294967296,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'local_buffer_size': 1073741824,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'local_hostname': 'localhost',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'master_server_address': 'localhost:50124',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'metadata_server': 'localhost:50123',
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'protocol': 'tcp'},
+[36m(SpecoTaskRunner pid=3058669)[0m                                 'SimpleStorage': {'num_data_storage_units': 8,
+[36m(SpecoTaskRunner pid=3058669)[0m                                                   'total_storage_size': 100000},
+[36m(SpecoTaskRunner pid=3058669)[0m                                 'storage_backend': 'SimpleStorage'},
+[36m(SpecoTaskRunner pid=3058669)[0m                     'enable': False,
+[36m(SpecoTaskRunner pid=3058669)[0m                     'metrics': {'enabled': False, 'port': 0}}}
+[36m(SpecoTaskRunner pid=3058669)[0m [validate_config] All configuration checks passed successfully!
+[36m(SpecoTaskRunner pid=3058669)[0m Using dataset class: RLHFDataset
+[36m(SpecoTaskRunner pid=3058669)[0m dataset len: 16
+[36m(SpecoTaskRunner pid=3058669)[0m Using dataset class: RLHFDataset
+[36m(SpecoTaskRunner pid=3058669)[0m dataset len: 4
+[36m(SpecoTaskRunner pid=3058669)[0m Size of train dataloader: 8, Size of val dataloader: 1
+[36m(SpecoTaskRunner pid=3058669)[0m Total training steps: 20
+[36m(SpecoTaskRunner pid=3058669)[0m colocated worker base class <class 'verl.single_controller.base.worker.Worker'>
+[36m(WorkerDict pid=3084615)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=3084618)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=3084615)[0m Qwen3ForCausalLM contains 4.02B parameters
+[36m(WorkerDict pid=3084615)[0m Before FSDP, memory allocated (GB): 0.00, memory reserved (GB): 0.00, device memory used/total (GB): 21.04/44.39
+[36m(WorkerDict pid=3084615)[0m After FSDP, memory allocated (GB): 3.77, memory reserved (GB): 4.69, device memory used/total (GB): 25.95/44.39
+[36m(WorkerDict pid=3084615)[0m Total steps: 20, num_warmup_steps: 0
+[36m(SpecoVLLMHttpServer pid=3123238)[0m ['serve',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '/home/kxqandccx/0z5a/speco-l20-20260919/models/target',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--dtype',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'bfloat16',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--load_format',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'auto',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--distributed_executor_backend',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'mp',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--worker_extension_cls',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'verl_speco.integration.vllm_runtime.SpecoVLLMColocateWorkerExtension',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--max_model_len',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '256',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--max_num_seqs',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '4',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--enable_chunked_prefill',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--max_num_batched_tokens',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '256',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--enable_prefix_caching',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--enable_sleep_mode',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--logprobs_mode',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'processed_logprobs',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--enforce_eager',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--gpu_memory_utilization',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '0.1',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--disable_log_stats',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--tensor_parallel_size',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '2',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--seed',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '0',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--override_generation_config',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '{"temperature": 1.0, "top_k": -1, "top_p": 1, "repetition_penalty": 1.0, '
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '"max_new_tokens": 64}',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--hf_overrides',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '{}',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--scheduling_policy',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  'fcfs',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--compilation_config',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '{"cudagraph_mode": "FULL_AND_PIECEWISE"}',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--kv_cache_memory_bytes',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '134217728',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '--speculative_config',
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '{"method": "eagle3", "num_speculative_tokens": 3, "model": '
+[36m(SpecoVLLMHttpServer pid=3123238)[0m  '"/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle"}']
+[36m(SpecoVLLMHttpServer pid=3123238)[0m WARNING 09-20 12:15:02 [vllm.py:1371] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+[36m(SpecoVLLMHttpServer pid=3123238)[0m WARNING 09-20 12:15:02 [vllm.py:1406] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m WARNING 09-20 12:15:02 [vllm.py:1924] max_num_scheduled_tokens is set to 256 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175909) WARNING 09-20 12:16:18 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.9 not supported, communicator is not available.[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:01,  1.08it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:01<00:00,  1.02it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.48it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) 
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.21it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.21it/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) 
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) JIT kernel warmup (1 compile keys):   0%|          | 0/1 [00:00<?, ?kernel/s]
+[36m(SpecoVLLMHttpServer pid=3123238)[0m JIT kernel warmup (1 compile keys): 100%|██████████| 1/1 [00:00<00:00,  3.88kernel/s, ComputeSlotMappingKernel (1 keys)]JIT kernel warmup (1 compile keys): 100%|██████████| 1/1 [00:00<00:00,  3.87kernel/s, ComputeSlotMappingKernel (1 keys)]
+[36m(GlobalRequestLoadBalancer pid=3193134)[0m W0920 12:17:53.767000 3193134 torch/utils/cpp_extension.py:178] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+[36m(SpecoWorker pid=3193240)[0m [W920 12:18:00.271174298 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[36m(SpecoWorker pid=3193241)[0m [W920 12:18:00.587144097 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[36m(SpecoWorker pid=3193240)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(SpecoWorker pid=3193240)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(SpecoWorker pid=3193241)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(SpecoWorker pid=3193241)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(SpecoWorker pid=3193240)[0m /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/models/eagle/llama_eagle.py:27: UserWarning: flash_attn is not found, falling back to flex_attention. Please install flash_attn if you want to use the flash attention backend.
+[36m(SpecoWorker pid=3193240)[0m   warnings.warn(
+[36m(SpecoWorker pid=3193241)[0m /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/models/eagle/llama_eagle.py:27: UserWarning: flash_attn is not found, falling back to flex_attention. Please install flash_attn if you want to use the flash attention backend.
+[36m(SpecoWorker pid=3193241)[0m   warnings.warn(
+[36m(SpecoWorker pid=3193240)[0m INFO:2026-09-20 12:18:17,936:Loading EAGLE3 drafter weights from /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias (drafter_step=unknown)
+[36m(SpecoWorker pid=3193240)[0m Loading weights:   0%|          | 0/15 [00:00<?, ?it/s]Loading weights: 100%|██████████| 15/15 [00:00<00:00, 13694.94it/s]
+[36m(SpecoWorker pid=3193241)[0m INFO:2026-09-20 12:18:18,181:Loading EAGLE3 drafter weights from /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias (drafter_step=unknown)
+[36m(SpecoWorker pid=3193241)[0m Loading weights:   0%|          | 0/15 [00:00<?, ?it/s]Loading weights: 100%|██████████| 15/15 [00:00<00:00, 19163.74it/s]
+[36m(WorkerDict pid=3084615)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/utils/device.py:146: FutureWarning: torch.cuda._set_allocator_settings is deprecated. Use torch._C._accelerator_setAllocatorSettings instead.
+[36m(WorkerDict pid=3084615)[0m   torch.cuda.memory._set_allocator_settings(f"expandable_segments:{enable}")
+[36m(WorkerDict pid=3084618)[0m /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/utils/device.py:146: FutureWarning: torch.cuda._set_allocator_settings is deprecated. Use torch._C._accelerator_setAllocatorSettings instead.
+[36m(WorkerDict pid=3084618)[0m   torch.cuda.memory._set_allocator_settings(f"expandable_segments:{enable}")
+
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175908) WARNING 09-20 12:16:18 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.9 not supported, communicator is not available.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175908) WARNING 09-20 12:16:19 [flashinfer_all_reduce.py:383] FlashInfer All Reduce is disabled because it is not supported for world_size=2.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175909) WARNING 09-20 12:16:19 [flashinfer_all_reduce.py:383] FlashInfer All Reduce is disabled because it is not supported for world_size=2.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175908) WARNING 09-20 12:16:22 [__init__.py:205] min_p and logit_bias parameters won't work with speculative decoding.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker pid=3175909) WARNING 09-20 12:16:22 [__init__.py:205] min_p and logit_bias parameters won't work with speculative decoding.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) WARNING 09-20 12:16:29 [vllm.py:1371] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) WARNING 09-20 12:16:29 [vllm.py:1406] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) WARNING 09-20 12:16:29 [vllm.py:1924] max_num_scheduled_tokens is set to 256 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) WARNING 09-20 12:16:36 [torch_utils.py:265] OMP_NUM_THREADS=4 is set; leaving Torch threads at 4 for serving. Multi-threaded torch CPU ops during serving can degrade performance through spin-wait contention and cgroup CPU-quota throttling.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) WARNING 09-20 12:17:39 [torch_utils.py:265] OMP_NUM_THREADS=4 is set; leaving Torch threads at 4 for serving. Multi-threaded torch CPU ops during serving can degrade performance through spin-wait contention and cgroup CPU-quota throttling.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) WARNING 09-20 12:17:40 [vllm.py:1371] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) WARNING 09-20 12:17:40 [vllm.py:1406] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) WARNING 09-20 12:17:40 [vllm.py:1924] max_num_scheduled_tokens is set to 256 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m WARNING 09-20 12:17:40 [api_router.py:28] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(SpecoVLLMHttpServer pid=3123238)[0m WARNING 09-20 12:17:43 [model.py:1759] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'repetition_penalty': 1.0, 'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'max_tokens': 64}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+[36m(SpecoTaskRunner pid=3058669)[0m LLMServerManager: ['172.23.255.114:33143']
+[36m(AgentLoopWorker pid=3193194)[0m Using dataset class: RLHFDataset
+[36m(AgentLoopWorker pid=3193190)[0m Using dataset class: RLHFDataset
+[36m(SpecoWorker pid=3193241)[0m Set draft model tie_word_embeddings to False
+[36m(SpecoWorker pid=3193240)[0m Set draft model tie_word_embeddings to False
+[36m(SpecoTaskRunner pid=3058669)[0m Checkpoint tracker file does not exist: /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/checkpoints-eagle-pr10/latest_checkpointed_iteration.txt
+[36m(SpecoTaskRunner pid=3058669)[0m Training from scratch
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] WorkerProc hit an exception.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] Traceback (most recent call last):
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 1047, in _execute_worker_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     output = func(*args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/integration/vllm_runtime.py", line 1302, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     result = super().update_weights_from_ipc(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         peft_config=peft_config, base_sync_done=base_sync_done, use_shm=use_shm
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 237, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     receiver.receive_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py", line 287, in receive_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 238, in <lambda>
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]                                        ~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 288, in _update_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     model.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/qwen3.py", line 339, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return loader.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/model_loader/reload/torchao_decorator.py", line 50, in patched_model_load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return original_load_weights(self, weights, *args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 445, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     self._check_skipped_aliases(autoloaded_weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 465, in _check_skipped_aliases
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     raise ValueError(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ...<4 lines>...
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] ValueError: 'lm_head.weight' was skipped because it is tied to 'model.embed_tokens.weight' in Qwen3ForCausalLM, but 'model.embed_tokens.weight' was not found in the checkpoint, so the tied weight is uninitialized.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] Traceback (most recent call last):
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 1047, in _execute_worker_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     output = func(*args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/integration/vllm_runtime.py", line 1302, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     result = super().update_weights_from_ipc(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         peft_config=peft_config, base_sync_done=base_sync_done, use_shm=use_shm
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 237, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     receiver.receive_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py", line 287, in receive_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 238, in <lambda>
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]                                        ~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 288, in _update_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     model.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/qwen3.py", line 339, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return loader.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/model_loader/reload/torchao_decorator.py", line 50, in patched_model_load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return original_load_weights(self, weights, *args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 445, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     self._check_skipped_aliases(autoloaded_weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 465, in _check_skipped_aliases
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     raise ValueError(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ...<4 lines>...
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] ValueError: 'lm_head.weight' was skipped because it is tied to 'model.embed_tokens.weight' in Qwen3ForCausalLM, but 'model.embed_tokens.weight' was not found in the checkpoint, so the tied weight is uninitialized.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP1 pid=3175909) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] 
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] WorkerProc hit an exception.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] Traceback (most recent call last):
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 1047, in _execute_worker_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     output = func(*args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/integration/vllm_runtime.py", line 1302, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     result = super().update_weights_from_ipc(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         peft_config=peft_config, base_sync_done=base_sync_done, use_shm=use_shm
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 237, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     receiver.receive_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py", line 287, in receive_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 238, in <lambda>
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]                                        ~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 288, in _update_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     model.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/qwen3.py", line 339, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return loader.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/model_loader/reload/torchao_decorator.py", line 50, in patched_model_load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return original_load_weights(self, weights, *args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 445, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     self._check_skipped_aliases(autoloaded_weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 465, in _check_skipped_aliases
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     raise ValueError(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ...<4 lines>...
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] ValueError: 'lm_head.weight' was skipped because it is tied to 'model.embed_tokens.weight' in Qwen3ForCausalLM, but 'model.embed_tokens.weight' was not found in the checkpoint, so the tied weight is uninitialized.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] Traceback (most recent call last):
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 1047, in _execute_worker_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     output = func(*args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/verl_speco/integration/vllm_runtime.py", line 1302, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     result = super().update_weights_from_ipc(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         peft_config=peft_config, base_sync_done=base_sync_done, use_shm=use_shm
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 237, in update_weights_from_ipc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     receiver.receive_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py", line 287, in receive_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 238, in <lambda>
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     on_bucket_received=lambda weights: self._update_weights(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]                                        ~~~~~~~~~~~~~~~~~~~~^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         weights, peft_config=peft_config, base_sync_done=base_sync_done
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10/verl/workers/rollout/vllm_rollout/utils.py", line 288, in _update_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     model.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/qwen3.py", line 339, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return loader.load_weights(weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/model_loader/reload/torchao_decorator.py", line 50, in patched_model_load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     return original_load_weights(self, weights, *args, **kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 445, in load_weights
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     self._check_skipped_aliases(autoloaded_weights)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/model_executor/models/utils.py", line 465, in _check_skipped_aliases
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     raise ValueError(
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     ...<4 lines>...
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055]     )
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] ValueError: 'lm_head.weight' was skipped because it is tied to 'model.embed_tokens.weight' in Qwen3ForCausalLM, but 'model.embed_tokens.weight' was not found in the checkpoint, so the tied weight is uninitialized.
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (Worker_TP0 pid=3175908) ERROR 09-20 12:18:36 [multiproc_executor.py:1055] 
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617] Invocation of collective_rpc method failed
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617] Traceback (most recent call last):
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/engine/core.py", line 1607, in _invoke_utility_method
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     result = get_result()
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/engine/core.py", line 1562, in <lambda>
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     and method(*self._convert_msgspec_args(method, args))
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/engine/core.py", line 979, in collective_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     return self.model_executor.collective_rpc(method, timeout, args, kwargs)
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 448, in collective_rpc
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     return future if non_block else future.result()
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]                                     ~~~~~~~~~~~~~^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/public-loader-overlay/vllm/v1/executor/multiproc_executor.py", line 99, in result
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     return super().result()
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]            ~~~~~~~~~~~~~~^^
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]   File "/home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+[36m(SpecoVLLMHttpServer pid=3123238)[0m (EngineCore pid=3173922) ERROR 09-20 12:18:36 [core.py:1617]     return self.__get_result()*** SIGTERM received at time=1789879598 on cpu 27 ***
+PC: @     0x7020b1e910d7  (unknown)  (unknown)
+    @     0x7020b1e42520  (unknown)  (unknown)
+    @ ... and at least 1 more frames
+[2026-09-20 12:46:38,676 E 2892655 2892655] logging.cc:474: *** SIGTERM received at time=1789879598 on cpu 27 ***
+[2026-09-20 12:46:38,676 E 2892655 2892655] logging.cc:474: PC: @     0x7020b1e910d7  (unknown)  (unknown)
+[2026-09-20 12:46:38,676 E 2892655 2892655] logging.cc:474:     @     0x7020b1e42520  (unknown)  (unknown)
+[2026-09-20 12:46:38,676 E 2892655 2892655] logging.cc:474:     @ ... and at least 1 more frames

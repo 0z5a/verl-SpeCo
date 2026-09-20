@@ -4,6 +4,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 cd /home/kxqandccx/0z5a/speco-l20-20260919
 export PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES=${SPECO_GPUS:-6,7} VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_V2_MODEL_RUNNER=0
 export RAY_DEDUP_LOGS=0
+export RAY_worker_niceness=0
 export OMP_NUM_THREADS=4 TOKENIZERS_PARALLELISM=false HF_HUB_OFFLINE=1
 export HF_HOME=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.cache/huggingface
 export RAY_TMPDIR=/tmp/speco-pr10-ray
@@ -11,9 +12,9 @@ export TORCHINDUCTOR_CACHE_DIR=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native
 export TRITON_CACHE_DIR=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.cache/triton
 export HYDRA_FULL_ERROR=1
 export PYTHONSAFEPATH=1
-export PYTHONPATH=${SPECO_PYTHON_CACHE:+$SPECO_PYTHON_CACHE:}${SPECO_AUDIT_OVERLAY:+$SPECO_AUDIT_OVERLAY:}${SPECO_VLLM_OVERLAY:+$SPECO_VLLM_OVERLAY:}/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10:/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native
+export PYTHONPATH=${SPECO_PYTHON_CACHE:+$SPECO_PYTHON_CACHE:}${SPECO_AUDIT_OVERLAY:+$SPECO_AUDIT_OVERLAY:}${SPECO_VLLM_OVERLAY:+$SPECO_VLLM_OVERLAY:}${SPECO_PADDING_OVERLAY:+$SPECO_PADDING_OVERLAY:}/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/deps-pr10:/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native
 /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python "$SCRIPT_DIR/prepare_data.py"
-cd /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native
+cd "${SPECO_AUDIT_OVERLAY:-/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native}"
 /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -m verl_speco.main \
  algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False \
  ray_kwargs.ray_init.num_cpus=16 \
