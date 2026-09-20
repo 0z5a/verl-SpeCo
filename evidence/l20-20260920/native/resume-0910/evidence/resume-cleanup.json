@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "path": "models/draft-cold-b/model.safetensors",
+      "bytes": 514888,
+      "sha256": "48102f3cc24a67aa6c285165fc73af15ab5a50030425f5c49ddcbeb14bfe64e6"
+    },
+    {
+      "path": "models/draft-eagle3/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "models/draft-mapped/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "models/draft-original/model.safetensors",
+      "bytes": 514920,
+      "sha256": "17b832fb66da75110f559d09ce62616edce73cb82fa0e844457ade45d8ca85a4"
+    },
+    {
+      "path": "models/target/model.safetensors",
+      "bytes": 727208,
+      "sha256": "9bc8ce7ea08dbd17ac2815ce1fc3e7d0e4e1b071c6969bca7d0e252d5d40da34"
+    }
+  ],
+  "total_bytes": 2786856
+}

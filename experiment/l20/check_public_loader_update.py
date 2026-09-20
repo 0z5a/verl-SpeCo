@@ -6,6 +6,7 @@ import inspect
 import json
 import sys
 from pathlib import Path
+from unittest import TestCase
 
 import torch
 from safetensors.torch import load_file
@@ -26,9 +27,13 @@ def update(worker, expect_failure, checkpoint, legacy_worker):
     }
     before = draft.model.fc.weight.detach().clone()
     if expect_failure:
-        import pytest
-
-        with pytest.raises(ValueError, match="no module or parameter named 'model'"):
+        error = KeyError if legacy_worker else ValueError
+        message = (
+            r"model\.embed_tokens\.weight"
+            if legacy_worker
+            else "no module or parameter named 'model'"
+        )
+        with TestCase().assertRaisesRegex(error, message):
             draft.load_weights(names.items())
         torch.testing.assert_close(draft.model.fc.weight, before, rtol=0, atol=0)
     else:

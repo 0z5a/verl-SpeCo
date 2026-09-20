@@ -1,0 +1,50 @@
+{
+  "loader": [
+    {
+      "expected_prefix_failure": true,
+      "python": "/home/kxqandccx/miniconda3/envs/agent_use/bin/python",
+      "loader_file": "/home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm/model_executor/models/llama_eagle3.py",
+      "accessor": "model_runner.drafter.model",
+      "fc_weight_changed": false,
+      "loader_sha256": "317608f6ae1e8bcd0372684ecf9e0a3db59da9cbda88bf40b01899d14cd28ae8"
+    }
+  ],
+  "token_ids": [
+    [
+      104,
+      147,
+      185,
+      243,
+      1,
+      181,
+      129,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    [
+      34,
+      150,
+      69,
+      169,
+      235,
+      153,
+      16,
+      72,
+      161,
+      62,
+      2,
+      235,
+      153,
+      16,
+      72,
+      161
+    ]
+  ]
+}

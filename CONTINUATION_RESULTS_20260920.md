@@ -63,4 +63,17 @@ TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 cu
 
 ## C5 环境调整
 
-用户确认 C5 使用 L20 主机原生 vLLM。已锁定 `agent_use` 的 vLLM 0.18.0 / PyTorch 2.10.0+cu128，并适配该版本的 fixture / worker 接口。最终原生对照因导入阶段文件页等待而超时，候选未执行；原生 registry 还缺少 DFlash。详见 `C5_NATIVE_RESULTS.md`。此次没有修改原生共享安装，测试权重已清理。
+用户确认 C5 使用 L20 主机原生 vLLM。已锁定 `agent_use` 的 vLLM 0.18.0 / PyTorch 2.10.0+cu128，并适配该版本的 fixture / worker 接口。首次原生对照因导入阶段文件页等待而超时；下方续测已完成 loader 对照，并发现及定位 parallel-drafting 派生缓存问题。原生 registry 仍缺少 DFlash。详见 `C5_NATIVE_RESULTS.md`。原生共享安装未修改，测试权重已清理。
+
+
+## C5 原生环境续测
+
+原生 0.18 的 baseline 已复现具体 `KeyError: model.embed_tokens.weight`；独立一行前缀候选完成两次 public load、fc 精确变更和后续生成。新增独立 cold-B oracle 发现 parallel-drafting proposer 的 mask hidden cache 未刷新：仅前缀候选的 draft logits 最大误差为 0.0556640625，尽管 target hash 和最终 tokens 均相同。测试侧原地刷新缓存后 1,280 logits 精确一致，地址保持不变。这是诊断结果，不是完整 PR10 / 双算法 RL 通过。
+
+| 对照 | 修改前 | 修改后 | 速度提升 |
+|---|---|---|---|
+| 原生 public loader | 重复前缀 KeyError | 前缀候选连续加载通过 | N/A，基线失败 |
+| hot-B 对 cold-B draft logits | 仅前缀候选误差 0.0556640625 | 测试侧刷新缓存后误差 0 | N/A，正确性专项 |
+| 原生 EAGLE3 / DFlash 完整 RL | 未完成 | 未完成 | N/A |
+
+本轮 5 个模型权重文件已清理，释放 2,786,856 bytes；报告及复现见 `C5_NATIVE_RESULTS.md`，原始日志和 logits 在 `evidence/l20-20260920/native/resume-0910/`。原生共享安装没有修改。DFlash 在现有 0.18 缺少实现，另建原生环境的选择已询问用户。

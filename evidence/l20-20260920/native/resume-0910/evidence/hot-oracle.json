@@ -1,0 +1,35 @@
+{
+  "mode": "hot",
+  "target_hash": [
+    "d0b5615f6b5f357837c5f8a4f2836a5d99c35f267af0ad2707b325a8bf9d6ce7"
+  ],
+  "target_unchanged": true,
+  "tokens": [
+    104,
+    147,
+    185,
+    243,
+    1,
+    181,
+    129,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120
+  ],
+  "loader": [
+    {
+      "expected_prefix_failure": false,
+      "python": "/home/kxqandccx/miniconda3/envs/agent_use/bin/python",
+      "loader_file": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native/overlay/vllm/model_executor/models/llama_eagle3.py",
+      "accessor": "model_runner.drafter.model",
+      "fc_weight_changed": true,
+      "loader_sha256": "baca4e5934955926d8600aea07d3bc5b24b3eacb45c5293fec2b30ddabc24356"
+    }
+  ]
+}

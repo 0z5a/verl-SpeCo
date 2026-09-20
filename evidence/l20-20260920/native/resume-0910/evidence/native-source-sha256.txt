@@ -1,0 +1,2 @@
+b5017c1c7e4210cce28786d10fd41179d22f0d285c366df57db4caacf2355e68  /home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm/model_executor/models/llama_eagle3.py
+ab9592c2a5815ecbd160148e58dfb751bbd1773e30f8ef09071528f34cd70f3b  /home/kxqandccx/miniconda3/envs/agent_use/lib/python3.13/site-packages/vllm/v1/spec_decode/eagle.py

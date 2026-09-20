@@ -24,7 +24,7 @@ for label in native-unpatched native-candidate; do
   else
     export PYTHONPATH="$root/overlay"
   fi
-  if timeout -k 15 300 "$py" check_public_loader_update.py --models-root "$root/models" --evidence-root "$root/evidence" --label "$label" "${flags[@]}" > "evidence/$label.log" 2>&1; then
+  if timeout -k 15 900 "$py" check_public_loader_update.py --models-root "$root/models" --evidence-root "$root/evidence" --label "$label" "${flags[@]}" > "evidence/$label.log" 2>&1; then
     echo 0 > "evidence/$label.exit"
   else
     status=$?

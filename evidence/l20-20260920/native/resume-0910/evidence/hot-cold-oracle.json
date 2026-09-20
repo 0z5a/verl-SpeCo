@@ -1,0 +1,9 @@
+{
+  "logit_shape": [
+    5,
+    256
+  ],
+  "max_abs_error": 0.0556640625,
+  "tokens_equal": true,
+  "target_equal": true
+}
