@@ -4,13 +4,15 @@ Author: 0z5a. Original PR production source:
 `b258ec517977a01df722909789da42746c39f28f`. Only experiment harness files are
 added in this checkout; the PR loader implementation is unchanged.
 
-**Not completed.** SSH has recovered. DFlash v9 is running. EAGLE3 v17 is queued after it. The run audits public-loader completion and whether private
+**Not completed; SSH access is currently unavailable.** DFlash v9 was last
+confirmed at 9/20 steps, writing the step-10 checkpoint. EAGLE3 v17 was queued
+after it. The run audits public-loader completion and whether private
 `fc.weight` survives later target synchronization.
 
 | Check | Baseline | Candidate | Speed change | Result |
 |---|---|---|---|---|
-| Native EAGLE3 20-step online RL | First rollout completed | Running | N/A | v11 exited before optimizer update: missing padding dependency; v15 uses upstream padding helpers, a longer-response fixture and unpadded single-sequence microbatches |
-| Native DFlash 20-step online RL | First rollout completed | Queued | N/A | v4 exited at the same padding dependency; no completed 20-step result |
+| Native EAGLE3 20-step online RL | One effective update before transport failure | v17 queued, current state unavailable | N/A | v11 exited before optimizer update: missing padding dependency; v15 uses upstream padding helpers, a longer-response fixture and unpadded single-sequence microbatches |
+| Native DFlash 20-step online RL | Not measured | Last confirmed 9/20 steps | N/A | Repeated public loads pass; intermediate FC retention fails; final result unavailable |
 | Actual PR10 public-loader audit | Original source | Logging and FC retention hash | N/A | Test overlay installed; no loader logic changes |
 
 The separate native environment uses vLLM 0.29.0, PyTorch 2.13.0+cu130,
