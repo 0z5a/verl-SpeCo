@@ -9,17 +9,21 @@ root = Path(
 )
 rows = []
 for index in range(16):
+    left, right = 173 + index, 29 + index
     rows.append(
         {
             "data_source": "openai/gsm8k",
             "prompt": [
                 {
                     "role": "user",
-                    "content": f"What is {index} + 2? Answer with #### followed by the number.",
+                    "content": (
+                        f"Calculate {left} times {right}. Explain your calculation in two sentences, "
+                        "then write #### followed by the final number."
+                    ),
                 }
             ],
             "ability": "math",
-            "reward_model": {"style": "rule", "ground_truth": str(index + 2)},
+            "reward_model": {"style": "rule", "ground_truth": str(left * right)},
             "extra_info": {"split": "train", "index": index},
         }
     )

@@ -23,7 +23,7 @@ cd "${SPECO_AUDIT_OVERLAY:-/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10
  data.train_batch_size=2 data.max_prompt_length=128 data.max_response_length=64 \
  data.filter_overlong_prompts_workers=1 data.truncation=error \
  actor_rollout_ref.model.path=/home/kxqandccx/0z5a/speco-l20-20260919/models/target \
- actor_rollout_ref.model.use_remove_padding=False \
+ actor_rollout_ref.model.use_remove_padding=True \
  +actor_rollout_ref.model.override_config.attn_implementation=sdpa \
  actor_rollout_ref.model.enable_gradient_checkpointing=True \
  actor_rollout_ref.actor.strategy=fsdp2 \
@@ -31,6 +31,7 @@ cd "${SPECO_AUDIT_OVERLAY:-/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10
  actor_rollout_ref.actor.optim.lr=1e-6 \
  actor_rollout_ref.actor.ppo_mini_batch_size=2 \
  actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=1 \
+ actor_rollout_ref.actor.use_dynamic_bsz=False \
  actor_rollout_ref.actor.use_kl_loss=False \
  actor_rollout_ref.actor.calculate_entropy=False \
  actor_rollout_ref.actor.fsdp_config.param_offload=True \
@@ -45,6 +46,7 @@ cd "${SPECO_AUDIT_OVERLAY:-/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10
  actor_rollout_ref.rollout.max_model_len=256 \
  actor_rollout_ref.rollout.max_num_seqs=4 \
  actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=1 \
+ actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=False \
  actor_rollout_ref.rollout.enforce_eager=True \
  actor_rollout_ref.rollout.agent.num_workers=2 \
  actor_rollout_ref.rollout.drafter.enable=True \
@@ -55,7 +57,7 @@ cd "${SPECO_AUDIT_OVERLAY:-/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10
  actor_rollout_ref.rollout.drafter.training.collect_hidden_states_from_old_logprob=True \
  actor_rollout_ref.rollout.drafter.training.old_logprob_hidden_capture_impl=forward_hook \
  actor_rollout_ref.rollout.drafter.training.hidden_state_window_tokens_per_sample=32 \
- actor_rollout_ref.rollout.drafter.training.hidden_state_window_min_rows=32 \
+ actor_rollout_ref.rollout.drafter.training.hidden_state_window_min_rows=2 \
  actor_rollout_ref.rollout.drafter.training.batch_size_per_gpu=1 \
  actor_rollout_ref.rollout.drafter.training.step=1 \
  actor_rollout_ref.rollout.drafter.training.collect_interval_steps=1 \

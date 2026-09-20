@@ -1,0 +1,23 @@
+{
+  "passed": false,
+  "gates": {
+    "process_exit_zero": false,
+    "all_steps": false,
+    "finite_metrics": false,
+    "actor_nonzero_gradient_observed": false,
+    "drafter_updates_every_step": false,
+    "public_loader_every_rank": false,
+    "publication_rpcs_completed": false,
+    "later_target_sync_observed": false,
+    "published_fc_retained": false,
+    "no_traceback": false
+  },
+  "exit_code": 1,
+  "steps": [],
+  "public_loader_counts": {},
+  "public_loader_classes": [],
+  "completed_publication_steps": [],
+  "retention_counts": {},
+  "retention_failures": 0,
+  "scope": "FC hash samples private-weight retention; no complete derived-buffer oracle or controlled speed claim"
+}

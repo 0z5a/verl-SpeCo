@@ -4,13 +4,12 @@ Author: 0z5a. Original PR production source:
 `b258ec517977a01df722909789da42746c39f28f`. Only experiment harness files are
 added in this checkout; the PR loader implementation is unchanged.
 
-**Not completed.** SSH has recovered. EAGLE3 v13 is running; DFlash v6 is
-queued after it. The run audits public-loader completion and whether private
+**Not completed.** SSH has recovered. EAGLE3 v15 is running; DFlash v8 follows sequentially. The run audits public-loader completion and whether private
 `fc.weight` survives later target synchronization.
 
 | Check | Baseline | Candidate | Speed change | Result |
 |---|---|---|---|---|
-| Native EAGLE3 20-step online RL | First rollout completed | Running | N/A | v11 exited before optimizer update: missing padding dependency; v13 adds upstream padding helpers |
+| Native EAGLE3 20-step online RL | First rollout completed | Running | N/A | v11 exited before optimizer update: missing padding dependency; v15 uses upstream padding helpers, a longer-response fixture and unpadded single-sequence microbatches |
 | Native DFlash 20-step online RL | First rollout completed | Queued | N/A | v4 exited at the same padding dependency; no completed 20-step result |
 | Actual PR10 public-loader audit | Original source | Logging and FC retention hash | N/A | Test overlay installed; no loader logic changes |
 
@@ -30,8 +29,8 @@ it is not a model-quality benchmark.
 
 Remote experiment root:
 `/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest`.
-Inspect `evidence/full-e2e/online-eagle-pr10-v13.{log,exit}` and
-`online-dflash-pr10-v6.{log,exit}` before restarting. The same detached launcher
+Inspect `evidence/full-e2e/online-eagle-pr10-v15.{log,exit}` and
+`online-dflash-pr10-v8.{log,exit}` before restarting. The same detached launcher
 runs them sequentially with 30-minute bounds on GPUs 0/1. Final completion,
 nonzero optimizer updates, publication/retention counts and model cleanup remain
 pending.
@@ -70,3 +69,20 @@ directory, which could shadow the audit package with the original checkout.
 v13 launches from the audit directory and logs each imported runtime path.
 Earlier runs establish only their observed execution/failure, not successful
 audited publication. Raw failure logs and the v12 stopped-process manifest are retained.
+
+v13 confirmed the audit source on Ray workers and passed the missing-padding
+boundary. Its first completed step had five-token answers, zero collected draft
+samples, zero draft updates and zero actor gradient. The run was stopped; this
+is not an E2E success. v14/v7 use explained multiplication prompts and a two-row
+minimum capture window to exercise training on shorter responses. The existing
+length reward term is unchanged. The result checker requires nonzero actor
+gradient, successful draft updates at all 20 steps, all-rank public loads,
+completed RPCs and subsequent FC retention, in addition to process completion.
+
+v14 reached real hidden-state collection and exited with the original PR's
+requirement that `use_remove_padding=True` and `DatasetPadMode.NO_PADDING`.
+v15/v8 enable it with SDPA, fixed per-GPU microbatch size 1 and dynamic batching
+disabled for both actor updates and old-logprob inference. A patched tiny Qwen3
+reference check compares padded and unpadded single-sequence forward outputs:
+maximum FP32 error 8.9406967e-8. This does not validate SDPA packing multiple
+independent documents in one sequence; the harness explicitly avoids that case.

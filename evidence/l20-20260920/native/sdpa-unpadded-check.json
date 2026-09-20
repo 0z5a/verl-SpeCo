@@ -1,0 +1,8 @@
+{
+  "scope": "Qwen3 SDPA one sequence per microbatch; no multi-sequence packing",
+  "max_errors": [
+    8.940696716308594e-08,
+    0.0
+  ],
+  "passed": true
+}

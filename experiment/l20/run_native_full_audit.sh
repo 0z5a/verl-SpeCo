@@ -6,8 +6,8 @@ scripts=$root/variants/pr10-native/experiment/l20
 export SPECO_GPUS=${SPECO_GPUS:-2,3} SPECO_PYTHON_CACHE=/dev/shm/speco-native-python-20260920
 export SPECO_AUDIT_OVERLAY=$run/pr10-retention-overlay-v2 SPECO_VLLM_OVERLAY=$run/public-loader-overlay
 export SPECO_PADDING_OVERLAY=$run/padding-overlay
-eagle_run=${EAGLE_RUN:-v13}
-dflash_run=${DFLASH_RUN:-v6}
+eagle_run=${EAGLE_RUN:-v15}
+dflash_run=${DFLASH_RUN:-v8}
 common=(actor_rollout_ref.rollout.checkpoint_engine.update_weights_bucket_megabytes=9216
         actor_rollout_ref.rollout.drafter.training.draft_update_weights_bucket_megabytes=128)
 status=0
