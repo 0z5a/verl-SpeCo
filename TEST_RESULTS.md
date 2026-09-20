@@ -4,7 +4,7 @@ Author: 0z5a. Original PR production source:
 `b258ec517977a01df722909789da42746c39f28f`. Only experiment harness files are
 added in this checkout; the PR loader implementation is unchanged.
 
-**Not completed.** SSH has recovered. EAGLE3 v15 is running; DFlash v8 follows sequentially. The run audits public-loader completion and whether private
+**Not completed.** SSH has recovered. EAGLE3 v16 is running; DFlash v9 follows sequentially. The run audits public-loader completion and whether private
 `fc.weight` survives later target synchronization.
 
 | Check | Baseline | Candidate | Speed change | Result |
@@ -29,9 +29,9 @@ it is not a model-quality benchmark.
 
 Remote experiment root:
 `/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest`.
-Inspect `evidence/full-e2e/online-eagle-pr10-v15.{log,exit}` and
-`online-dflash-pr10-v8.{log,exit}` before restarting. The same detached launcher
-runs them sequentially with 30-minute bounds on GPUs 0/1. Final completion,
+Inspect `evidence/full-e2e/online-eagle-pr10-v16.{log,exit}` and
+`online-dflash-pr10-v9.{log,exit}` before restarting. The same detached launcher
+runs them sequentially with 60-minute bounds on GPUs 0/1. Final completion,
 nonzero optimizer updates, publication/retention counts and model cleanup remain
 pending.
 
@@ -86,3 +86,12 @@ disabled for both actor updates and old-logprob inference. A patched tiny Qwen3
 reference check compares padded and unpadded single-sequence forward outputs:
 maximum FP32 error 8.9406967e-8. This does not validate SDPA packing multiple
 independent documents in one sequence; the harness explicitly avoids that case.
+
+v15 completed one effective training step: actor gradient norm 19.875,
+2 collected drafter samples and 1 successful draft optimizer step. Its subsequent
+CUDA IPC publication failed on both ranks with `pidfd_getfd: Operation not permitted`.
+The async `drafter/published=1` metric therefore did **not** mean completion.
+The failed RPC and owned stopped-process manifest are retained. v16/v9 select the
+original PR's `draft_update_use_shm=True` transport while preserving the same
+native public loader. Host security policy is unchanged. The per-algorithm bound
+is now 60 minutes to accommodate actual shared-node step time and checkpoint I/O.

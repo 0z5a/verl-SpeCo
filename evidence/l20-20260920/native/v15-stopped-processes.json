@@ -1,0 +1,300 @@
+{
+  "reason": "Native draft CUDA IPC rejected pidfd_getfd; retry original supported shared-memory transport",
+  "processes": [
+    {
+      "pid": 4023437,
+      "ppid": 1,
+      "command": "bash /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/experiment/l20/run_native_full_audit.sh"
+    },
+    {
+      "pid": 4023452,
+      "ppid": 4023437,
+      "command": "timeout -k 30 1800 bash /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/experiment/l20/run_native_online.sh actor_rollout_ref.rollout.drafter.model_path=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias +actor_rollout_ref.rollout.drafter.vllm.speculative_config_overrides.model=/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle +actor_rollout_ref.rollout.engine_kwargs.vllm.kv_cache_memory_bytes=134217728 actor_rollout_ref.rollout.max_num_batched_tokens=256 actor_rollout_ref.rollout.checkpoint_engine.update_weights_bucket_megabytes=9216 actor_rollout_ref.rollout.drafter.training.draft_update_weights_bucket_megabytes=128"
+    },
+    {
+      "pid": 4023453,
+      "ppid": 4023452,
+      "command": "bash /home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/experiment/l20/run_native_online.sh actor_rollout_ref.rollout.drafter.model_path=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias +actor_rollout_ref.rollout.drafter.vllm.speculative_config_overrides.model=/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle +actor_rollout_ref.rollout.engine_kwargs.vllm.kv_cache_memory_bytes=134217728 actor_rollout_ref.rollout.max_num_batched_tokens=256 actor_rollout_ref.rollout.checkpoint_engine.update_weights_bucket_megabytes=9216 actor_rollout_ref.rollout.drafter.training.draft_update_weights_bucket_megabytes=128"
+    },
+    {
+      "pid": 4023763,
+      "ppid": 4023453,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -m verl_speco.main algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False ray_kwargs.ray_init.num_cpus=16 data.train_files=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/train.parquet data.val_files=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/val.parquet data.train_batch_size=2 data.max_prompt_length=128 data.max_response_length=64 data.filter_overlong_prompts_workers=1 data.truncation=error actor_rollout_ref.model.path=/home/kxqandccx/0z5a/speco-l20-20260919/models/target actor_rollout_ref.model.use_remove_padding=True +actor_rollout_ref.model.override_config.attn_implementation=sdpa actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.fsdp_config.model_dtype=bf16 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=2 actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=1 actor_rollout_ref.actor.use_dynamic_bsz=False actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.calculate_entropy=False actor_rollout_ref.actor.fsdp_config.param_offload=True actor_rollout_ref.actor.fsdp_config.optimizer_offload=True actor_rollout_ref.actor.fsdp_config.use_torch_compile=False actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.load_format=auto actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.10 actor_rollout_ref.rollout.n=2 actor_rollout_ref.rollout.checkpoint_engine.update_weights_bucket_megabytes=128 actor_rollout_ref.rollout.max_model_len=256 actor_rollout_ref.rollout.max_num_seqs=4 actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=1 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=False actor_rollout_ref.rollout.enforce_eager=True actor_rollout_ref.rollout.agent.num_workers=2 actor_rollout_ref.rollout.drafter.enable=True actor_rollout_ref.rollout.drafter.enable_drafter_training=True actor_rollout_ref.rollout.drafter.model_path=/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle actor_rollout_ref.rollout.drafter.speculative_algorithm=EAGLE3 actor_rollout_ref.rollout.drafter.training.collect_hidden_states_from_sgl=False actor_rollout_ref.rollout.drafter.training.collect_hidden_states_from_old_logprob=True actor_rollout_ref.rollout.drafter.training.old_logprob_hidden_capture_impl=forward_hook actor_rollout_ref.rollout.drafter.training.hidden_state_window_tokens_per_sample=32 actor_rollout_ref.rollout.drafter.training.hidden_state_window_min_rows=2 actor_rollout_ref.rollout.drafter.training.batch_size_per_gpu=1 actor_rollout_ref.rollout.drafter.training.step=1 actor_rollout_ref.rollout.drafter.training.collect_interval_steps=1 actor_rollout_ref.rollout.drafter.training.training_interval_steps=1 actor_rollout_ref.rollout.drafter.training.publish_interval_steps=1 actor_rollout_ref.rollout.drafter.training.publish_async=True trainer.n_gpus_per_node=2 trainer.nnodes=1 trainer.val_before_train=False trainer.logger=[console] custom_reward_function.path=/home/kxqandccx/0z5a/speco-l20-20260919/variants/pr10-native/experiment/l20/integration_reward.py custom_reward_function.name=compute_score +data.apply_chat_template_kwargs.enable_thinking=False trainer.save_freq=10 trainer.test_freq=-1 trainer.total_training_steps=20 trainer.total_epochs=3 trainer.project_name=speco-l20 trainer.experiment_name=eagle3-compat trainer.default_local_dir=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/evidence/full-e2e/checkpoints-eagle-pr10 actor_rollout_ref.rollout.drafter.model_path=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/eagle-training-alias +actor_rollout_ref.rollout.drafter.vllm.speculative_config_overrides.model=/home/kxqandccx/0z5a/speco-l20-20260919/models/eagle +actor_rollout_ref.rollout.engine_kwargs.vllm.kv_cache_memory_bytes=134217728 actor_rollout_ref.rollout.max_num_batched_tokens=256 actor_rollout_ref.rollout.checkpoint_engine.update_weights_bucket_megabytes=9216 actor_rollout_ref.rollout.drafter.training.draft_update_weights_bucket_megabytes=128"
+    },
+    {
+      "pid": 4027517,
+      "ppid": 4023763,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --config_list=eyJvYmplY3Rfc3BpbGxpbmdfY29uZmlnIjogIntcInR5cGVcIjogXCJmaWxlc3lzdGVtXCIsIFwicGFyYW1zXCI6IHtcImRpcmVjdG9yeV9wYXRoXCI6IFwiL3RtcC9zcGVjby1wcjEwLXJheS9yYXkvc2Vzc2lvbl8yMDI2LTA5LTIwXzEzLTQ5LTUxXzY1NDY3M180MDIzNzYzXCJ9fSIsICJpc19leHRlcm5hbF9zdG9yYWdlX3R5cGVfZnMiOiB0cnVlfQ== --gcs_server_port=0 --metrics-agent-port=0 --node-ip-address=172.23.255.114 --session-name=session_2026-09-20_13-49-51_654673_4023763 --ray-commit=48bd1f8fa43d0e8222b0f57357b99b48c7437ed3 --session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --node-id=b701890b4573afdb5a806982cf874b61a52a3e27b14138788c998b44 --stdout_filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/gcs_server.out --stderr_filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/gcs_server.err"
+    },
+    {
+      "pid": 4028045,
+      "ppid": 4023763,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -u /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/autoscaler/_private/monitor.py --logs-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --gcs-address=172.23.255.114:42549 --stdout-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/monitor.out --stderr-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/monitor.err --monitor-ip=172.23.255.114"
+    },
+    {
+      "pid": 4028054,
+      "ppid": 4023763,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/dashboard/dashboard.py --host=127.0.0.1 --port=8265 --port-retries=50 --temp-dir=/tmp/speco-pr10-ray/ray --log-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --gcs-address=172.23.255.114:42549 --cluster-id-hex=fb0065b656c1a408191097c51066b5aac05473e0c3445d5c8649edbc --node-ip-address=172.23.255.114 --stdout-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/dashboard.out --stderr-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/dashboard.err"
+    },
+    {
+      "pid": 4028594,
+      "ppid": 4028054,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c from multiprocessing.resource_tracker import main;main(25)"
+    },
+    {
+      "pid": 4028595,
+      "ppid": 4028054,
+      "command": "ray-dashboard-MetricsHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=28)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028596,
+      "ppid": 4028054,
+      "command": "ray-dashboard-DataHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=31)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028597,
+      "ppid": 4028054,
+      "command": "ray-dashboard-EventHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=34)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028598,
+      "ppid": 4028054,
+      "command": "ray-dashboard-JobHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=37)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028599,
+      "ppid": 4028054,
+      "command": "ray-dashboard-NodeHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=40)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028600,
+      "ppid": 4028054,
+      "command": "ray-dashboard-ReportHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=43)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028601,
+      "ppid": 4028054,
+      "command": "ray-dashboard-ServeHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=46)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028602,
+      "ppid": 4028054,
+      "command": "ray-dashboard-StateHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=49)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4028603,
+      "ppid": 4028054,
+      "command": "ray-dashboard-TrainHead-0 (/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c \"from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=26, pipe_handle=52)\" --multiprocessing-fork)"
+    },
+    {
+      "pid": 4029276,
+      "ppid": 4023763,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -u /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/log_monitor.py --session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --logs-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --gcs-address=172.23.255.114:42549 --node-ip-address=172.23.255.114 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --stdout-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/log_monitor.out --stderr-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/log_monitor.err"
+    },
+    {
+      "pid": 4029277,
+      "ppid": 4023763,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/core/src/ray/raylet/raylet --raylet_socket_name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/raylet --store_socket_name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/plasma_store --object_manager_port=0 --min_worker_port=0 --max_worker_port=0 --node_manager_port=0 --node_id=b701890b4573afdb5a806982cf874b61a52a3e27b14138788c998b44 --node_ip_address=172.23.255.114 --maximum_startup_concurrency=16 --static_resource_list=node:172.23.255.114,1.0,node:__internal_head__,1.0,accelerator_type:L20,1,CPU,16,GPU,2,memory,235348440679,object_store_memory,100863617433 --python_worker_command=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/workers/setup_worker.py /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/workers/default_worker.py --node-ip-address=172.23.255.114 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/plasma_store --raylet-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/raylet --redis-address=None --metrics-agent-port=0 --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --runtime-env-agent-port=0 --gcs-address=172.23.255.114:42549 --session-name=session_2026-09-20_13-49-51_654673_4023763 --temp-dir=/tmp/speco-pr10-ray/ray --webui=127.0.0.1:8265 --cluster-id=fb0065b656c1a408191097c51066b5aac05473e0c3445d5c8649edbc RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER --java_worker_command=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/workers/setup_worker.py -Dray.address=172.23.255.114:42549 -Dray.raylet.node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER -Dray.object-store.socket-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/plasma_store -Dray.raylet.socket-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/raylet -Dray.redis.username= -Dray.redis.password= -Dray.node-ip=172.23.255.114 -Dray.home=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/../.. -Dray.logging.dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs -Dray.session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 RAY_WORKER_DYNAMIC_OPTION_PLACEHOLDER io.ray.runtime.runner.worker.DefaultWorker --cpp_worker_command= --native_library_path=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/cpp/lib --temp_dir=/tmp/speco-pr10-ray/ray --session_dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --log_dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --resource_dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/runtime_resources --metrics-agent-port=0 --metrics_export_port=0 --runtime_env_agent_port=0 --object_store_memory=100863617433 --plasma_directory=/dev/shm --fallback_directory=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --ray-debugger-external=0 --gcs-address=172.23.255.114:42549 --session-name=session_2026-09-20_13-49-51_654673_4023763 --labels={\"ray.io/accelerator-type\": \"L20\"} --cluster-id=fb0065b656c1a408191097c51066b5aac05473e0c3445d5c8649edbc --stdout_filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/raylet.out --stderr_filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/raylet.err --head --num_prestart_python_workers=16 --dashboard_agent_command=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -u /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/dashboard/agent.py --node-id=b701890b4573afdb5a806982cf874b61a52a3e27b14138788c998b44 --node-ip-address=172.23.255.114 --metrics-export-port=0 --grpc-port=0 --listen-port=52365 --node-manager-port=RAY_NODE_MANAGER_PORT_PLACEHOLDER --object-store-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/plasma_store --raylet-name=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/sockets/raylet --temp-dir=/tmp/speco-pr10-ray/ray --session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --log-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --session-name=session_2026-09-20_13-49-51_654673_4023763 --gcs-address=172.23.255.114:42549 --cluster-id-hex=fb0065b656c1a408191097c51066b5aac05473e0c3445d5c8649edbc --stdout-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/dashboard_agent.out --stderr-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/dashboard_agent.err --head --runtime_env_agent_command=/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -u /home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/lib/python3.13/site-packages/ray/_private/runtime_env/agent/main.py --node-id=b701890b4573afdb5a806982cf874b61a52a3e27b14138788c998b44 --node-ip-address=172.23.255.114 --runtime-env-agent-port=0 --session-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763 --gcs-address=172.23.255.114:42549 --cluster-id-hex=fb0065b656c1a408191097c51066b5aac05473e0c3445d5c8649edbc --runtime-env-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/runtime_resources --logging-rotate-bytes=536870912 --logging-rotate-backup-count=5 --log-dir=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs --temp-dir=/tmp/speco-pr10-ray/ray --stdout-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/runtime_env_agent.out --stderr-filepath=/tmp/speco-pr10-ray/ray/session_2026-09-20_13-49-51_654673_4023763/logs/runtime_env_agent.err"
+    },
+    {
+      "pid": 4029753,
+      "ppid": 4029277,
+      "command": "ray::DashboardAgent"
+    },
+    {
+      "pid": 4029755,
+      "ppid": 4029277,
+      "command": "ray::RuntimeEnvAgent"
+    },
+    {
+      "pid": 4030866,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030867,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030868,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030869,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030870,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030871,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030872,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4030874,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4031793,
+      "ppid": 4029277,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4034787,
+      "ppid": 4029277,
+      "command": "ray::IDLE"
+    },
+    {
+      "pid": 4034933,
+      "ppid": 4029277,
+      "command": "ray::WorkerDict.actor_rollout_update_draft_weights_async"
+    },
+    {
+      "pid": 4034934,
+      "ppid": 4029277,
+      "command": "ray::WorkerDict.actor_rollout_update_draft_weights_async"
+    },
+    {
+      "pid": 4041836,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041837,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041838,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041839,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041840,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041841,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041842,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041844,
+      "ppid": 4029277,
+      "command": "ray::RewardLoopWorker"
+    },
+    {
+      "pid": 4041845,
+      "ppid": 4029277,
+      "command": "ray::SpecoVLLMHttpServer"
+    },
+    {
+      "pid": 4046086,
+      "ppid": 4041845,
+      "command": "/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest/.venv/bin/python -B -P -c from multiprocessing.resource_tracker import main;main(120)"
+    },
+    {
+      "pid": 4046087,
+      "ppid": 4041845,
+      "command": "VLLM::EngineCore"
+    },
+    {
+      "pid": 4047780,
+      "ppid": 4046087,
+      "command": "VLLM::Worker_TP0"
+    },
+    {
+      "pid": 4047781,
+      "ppid": 4046087,
+      "command": "VLLM::Worker_TP1"
+    },
+    {
+      "pid": 4051597,
+      "ppid": 4029277,
+      "command": "ray::GlobalRequestLoadBalancer"
+    },
+    {
+      "pid": 4051691,
+      "ppid": 4029277,
+      "command": "ray::AgentLoopWorker"
+    },
+    {
+      "pid": 4051693,
+      "ppid": 4029277,
+      "command": "ray::AgentLoopWorker"
+    },
+    {
+      "pid": 4051707,
+      "ppid": 4029277,
+      "command": "ray::SpecoWorker"
+    },
+    {
+      "pid": 4051708,
+      "ppid": 4029277,
+      "command": "ray::SpecoWorker"
+    },
+    {
+      "pid": 4061925,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061926,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061927,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061928,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061935,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061938,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061939,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    },
+    {
+      "pid": 4061941,
+      "ppid": 4031793,
+      "command": "ray::SpecoTaskRunner.run"
+    }
+  ]
+}
