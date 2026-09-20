@@ -114,3 +114,10 @@ Original PR10 waits for pending publication RPCs before each rollout and in
 `fit` cleanup. Final completion evidence therefore requires all-rank load counts,
 all 20 steps and a clean exit through those barriers. Adapter completion logs are
 recorded when present; async `published=1` alone never satisfies this check.
+
+Connection status at 2026-09-20 14:16–14:18 Asia/Shanghai: SSH port 6000
+refuses new connections. Last confirmed DFlash v9 state was 9 completed steps,
+with step 10 writing checkpoints (about 5.6 GiB present); both ranks had executed
+the native public loader repeatedly. EAGLE3 v17 was queued behind PID 4101336
+by PID 4173853. Remote completion and cleanup remain unverified until access
+returns; these are detached processes, not a reason to start duplicate jobs.
