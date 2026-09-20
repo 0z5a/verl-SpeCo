@@ -4,7 +4,7 @@ Author: 0z5a. Original PR production source:
 `b258ec517977a01df722909789da42746c39f28f`. Only experiment harness files are
 added in this checkout; the PR loader implementation is unchanged.
 
-**Not completed.** SSH has recovered. EAGLE3 v16 is running; DFlash v9 follows sequentially. The run audits public-loader completion and whether private
+**Not completed.** SSH has recovered. DFlash v9 is running. EAGLE3 v17 is queued after it. The run audits public-loader completion and whether private
 `fc.weight` survives later target synchronization.
 
 | Check | Baseline | Candidate | Speed change | Result |
@@ -29,7 +29,7 @@ it is not a model-quality benchmark.
 
 Remote experiment root:
 `/home/kxqandccx/0z5a/speco-l20-20260919/c5-native-latest`.
-Inspect `evidence/full-e2e/online-eagle-pr10-v16.{log,exit}` and
+Inspect `evidence/full-e2e/online-eagle-pr10-v17.{log,exit}` and
 `online-dflash-pr10-v9.{log,exit}` before restarting. The same detached launcher
 runs them sequentially with 60-minute bounds on GPUs 0/1. Final completion,
 nonzero optimizer updates, publication/retention counts and model cleanup remain
@@ -95,3 +95,22 @@ The failed RPC and owned stopped-process manifest are retained. v16/v9 select th
 original PR's `draft_update_use_shm=True` transport while preserving the same
 native public loader. Host security policy is unchanged. The per-algorithm bound
 is now 60 minutes to accommodate actual shared-node step time and checkpoint I/O.
+
+v16 completed one effective EAGLE3 update but the shared-memory sender rejected
+its 163,840,000-byte BF16 `lm_head.weight`: 128 MiB cannot hold this tensor.
+The next EAGLE3 run uses 256 MiB. DFlash v9 continues with 128 MiB because its
+largest published checkpoint tensor is the 65,536,000-byte FC weight. The native
+loader has completed 58-tensor publications on both ranks, and subsequent steps
+have trained and published changed FC fingerprints.
+
+DFlash's target-sync retention check fails: the observed post-sync FC hash equals
+the initial safetensors FC hash (`7ea10cdf…3ca673`), not the most recently published
+hash. The unconditional checkpoint reload is already present in PR10's parent;
+this is not attributed to the public-loader change. With publish interval 1 a
+new draft is published after each target sync, so the 20-step run continues.
+The report separates training/publication completion from intermediate retention.
+
+Original PR10 waits for pending publication RPCs before each rollout and in
+`fit` cleanup. Final completion evidence therefore requires all-rank load counts,
+all 20 steps and a clean exit through those barriers. Adapter completion logs are
+recorded when present; async `published=1` alone never satisfies this check.

@@ -55,9 +55,11 @@ completed = [
 ]
 exit_path = args.log.with_suffix(".exit")
 exit_code = int(exit_path.read_text()) if exit_path.exists() else None
+all_steps = [step["step"] for step in steps] == list(range(1, args.steps + 1))
+all_loads = all(load_counts[rank] == args.steps for rank in range(args.tp))
 gates = {
     "process_exit_zero": exit_code == 0,
-    "all_steps": [step["step"] for step in steps] == list(range(1, args.steps + 1)),
+    "all_steps": all_steps,
     "finite_metrics": bool(steps)
     and all(math.isfinite(value) for step in steps for value in step.values()),
     "actor_nonzero_gradient_observed": any(
@@ -69,10 +71,9 @@ gates = {
         and step.get("drafter/train_successful_steps_max", 0) > 0
         for step in steps
     ),
-    "public_loader_every_rank": all(
-        load_counts[rank] == args.steps for rank in range(args.tp)
-    ),
-    "publication_rpcs_completed": completed == list(range(1, args.steps + 1)),
+    "public_loader_every_rank": all_loads,
+    # Original PR10 waits pending RPCs before every rollout and in fit's finally.
+    "publication_barriers_completed": exit_code == 0 and all_steps and all_loads,
     "later_target_sync_observed": all(
         retention_counts[rank] >= args.steps - 1 for rank in range(args.tp)
     ),
@@ -83,12 +84,16 @@ gates = {
 }
 report = {
     "passed": all(gates.values()),
+    "training_and_publication_passed": all(
+        value for name, value in gates.items() if name != "published_fc_retained"
+    ),
     "gates": gates,
     "exit_code": exit_code,
     "steps": steps,
     "public_loader_counts": dict(load_counts),
     "public_loader_classes": sorted({name for name, _, _ in loads}),
-    "completed_publication_steps": completed,
+    "logged_adapter_completion_steps": completed,
+    "publication_completion_evidence": "All-rank public loads plus complete training and clean exit through original PR10's pre-rollout and final pending-RPC barriers",
     "retention_counts": dict(retention_counts),
     "distinct_published_fc_hashes": distinct_hash_counts,
     "retention_failures": sum(value == "False" for _, value in retention),

@@ -1,0 +1,6 @@
+{
+  "checkpoint": "/home/kxqandccx/0z5a/speco-l20-20260919/models/dflash/model.safetensors",
+  "tensor": "fc.weight",
+  "sha256": "7ea10cdfe0c6ce0f3a39017d87ff0b82ac19ca37e5b64206d28e139b7e3ca673",
+  "bytes": 65536000
+}
