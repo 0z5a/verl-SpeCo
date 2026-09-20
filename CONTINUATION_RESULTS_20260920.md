@@ -92,3 +92,24 @@ TP2 target-only baseline 在 FlashAttention 内停滞。已尝试 NCCL 替代 cu
   https://github.com/verl-project/verl-SpeCo/issues/7#issuecomment-5746767473
 - C2 completed-task weights were cleaned (23 files, 8,051,385,896 bytes). The
   small copied checkpoint remains only while C1 is actively validating it.
+
+## Native C1 completion record
+
+C1 commit `8e9427f` validates the C2 fix's six-step trained checkpoint on the new
+native vLLM environment. TP1 eager and CUDA Graph generation match the target-only
+reference; each candidate checks 25/25 logical tensors. The eager oracle passes
+64 cached draft calls (maximum logits error 0.00390625). Actual graph replay counts
+are 80 baseline / 272 speculative. Seven converter tests, Ruff check/format and
+shell syntax checks pass. These are correctness results, without a speedup claim.
+
+TP2 remains **not passed**: the target-only baseline blocks before the first token.
+FlexAttention hits its 300-second RPC timeout; bounded FlashAttention trials with
+P2P disabled, synchronous scheduling, alternative GPU placement, custom
+all-reduce and eager CUDA module loading also do not complete. Native stacks and
+raw logs are committed; TP2 draft and graph are not marked as passed. This is not
+completion of all C1–C5 online RL E2E requirements.
+
+All task-owned serving processes were stopped. The three copied C1 model weights
+were cleaned (1,757,048 bytes); their paths and SHA-256 are in C1's
+`evidence/l20-20260920/native-latest/cleanup.json`. Model configs, numerical forward
+captures and logs remain. Rebase against fetched upstream `18dd7094` is up to date.
